@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<canvas id="c" width="260" height="260" oncontextmenu="window.event.returnValue=false" onselectstart="event.returnValue=false" style="background:#ffffff"></canvas>
+<div>
+    <input type="text" id="z" />
+    <button id="s">缩放</button>
+    <button id="r">重置</button>
+</div>
+<script src="coffee-script.js"></script>
+<script>
+    rect = [54,54]
+    width = 260
+    height = 260
+    col = 8
+    vMouse = [0,0]
+    color = [["#fa00a0","#aa00f0","#caaa00","#fa0c00"],
+        ["#f0fb00","#00eff0","#0fee00","#5fdf2a"],
+        ["#0000ea","#00e0aa","#00f0aa","#00a0aa"],
+        ["#a0a0a0","#a0e0a0","#a0f0a0","#a0ffa0"]]
+
+    protect = (next)->
+    c = $("#c")[0].getContext("2d");
+    c.save()
+    c.setTransform(1, 0, 0, 1,0,0)
+    next(c)
+    c.restore();
+    cleanUp = ->
+    protect (c) =>
+    c.clearRect(0,0,width,height);
+    draw  = ->
+            cleanUp();
+    c = $("#c")[0].getContext("2d");
+    for x in [0...4]
+            for y in [0...4]
+                    c.fillStyle = color[y][x];
+    c.fillRect(col + x * (rect[0] + col) ,col + y * (rect[1] + col), rect[0], rect[1])
+    c.strokeRect(col + x * (rect[0] + col) ,col + y * (rect[1] + col), rect[0], rect[1])
+    protect (c) =>
+    c.fillStyle="rgba(0,0,0,0.2)"
+    c.beginPath()
+    c.arc(vMouse[0],vMouse[1],10,0,Math.PI*2,true);
+    c.closePath()
+    c.fill()
+    draw()
+    $("#c").mousedown (e) =>
+    vMouse = [e.offsetX, e.offsetY]
+    draw()
+
+    $("#s").click =>
+    c = $("#c")[0].getContext("2d")
+    c.translate(vMouse[0], vMouse[1])
+    c.scale(parseFloat($("#z").val()), parseFloat($("#z").val()))
+    c.translate(-vMouse[0], -vMouse[1])
+    draw()
+
+    $("#r").click =>
+    c = $("#c")[0].getContext("2d")
+    c.setTransform(1, 0, 0, 1,0,0)
+    draw()
+</script>
+</body>
+</html>

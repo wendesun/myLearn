@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul id="parent-list">
+    <li id="post-1" class="list">Item 1</li>
+    <li id="post-2" class="list">Item 2</li>
+    <li id="post-3" class="list">Item 3</li>
+    <li id="post-4" class="list">Item 4</li>
+    <li id="post-5" class="list">Item 5</li>
+    <li id="post-6" class="list">Item 6</li>
+</ul>
+<script src="../js/jquery-1.11.3.min.js"></script>
+<script>
+    $(function(){
+        $("#parent-list").on('mouseover','li',function(){
+            console.log($(this).text());
+        })
+    });
+</script>
+</body>
+</html>

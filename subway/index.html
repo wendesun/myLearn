@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+    <title>地铁图</title>
+    <link rel="shortcut icon" type="image/x-icon" href="./img/subway/favicon.ico" media="screen">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+<body class = "disable-default-action">
+<div id="os" class="os">
+    <!-- 地铁页面 -->
+    <div id="subway">
+        <div class="top_bar">
+            <div class="back_btn" id="back_amap"></div>
+            <!-- <span class="city_name"></span> -->
+            <div class="route_entry">
+                <div class="route_ipt" id="setStart" srhtype="start">
+                    <div class="route_startend route_start route_placeholder">输入起点</div>
+                    <div class="route_close route_close_start hidden"></div>
+                </div>
+                <a id="setSwitch" class="route_switch" href="javascript:void(0)"></a>
+                <div class="route_ipt" id="setEnd" srhtype="end">
+                    <div class="route_startend route_end route_placeholder">输入终点</div>
+                    <div class="route_close route_close_end hidden"></div>
+                </div>
+            </div>
+            <!-- scale:<span id="scale"></span><br> -->
+            <!-- transfo0rm：<span id="transform"></span><br> -->
+            <!-- move:<span id="move"></span> -->
+            <a class="city_list_btn city_name" href='javascript:void(0)'></a>
+        </div>  <!-- /.top_bar -->
+        <div class="route_bar">
+            <div class="route_line"></div>
+            <div class="route_info"></div>
+            <div class="route_detail">详情></div>
+        </div>
+        <div class="light_box"></div>
+        <div class="filter_btn">线路</div>
+        <div class="route_close_btn hidden"></div>
+        <div class="filter_content">
+            <div class="flier_close_btn"></div>
+            <ul class="fliter_detail"></ul>
+        </div>
+        <div id="drag_handle">
+            <div id="subwaySvg" style="display:none;">
+                <div class="overlays">
+                    <div class="tip_wrap_out ust">
+                        <div class="tip_wrap">
+                            <div class="tip_bady">
+                                <div class="tip_name_detail">
+                                    <span class="tip_name" id="tip_name"></span>
+                                    <span class="tip_detail ust">详情></span>
+                                </div>
+                                <div class="tip_route">
+                                    <div class="tip_route_btn tip_route_start ust" type="start">设为起点</div>
+                                    <div class="tip_route_btn tip_route_end ust" type="end">设为终点</div>
+                                </div>
+                            </div>
+                            <div class="tip_footer">
+                                <!-- <i class="arrow"></i> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nav_marker" id="nav_start" type="start"></div>
+                    <div class="nav_marker" id="nav_end" type="end"></div>
+                </div>
+                <!-- <div id="subwaySvgBody" class="subway_svg">
+                </div> -->
+            </div>
+        </div>
+        <img id="transfer-img" src="./img/subway/transfer-station.png" style="display:none"/>
+        <canvas id="subwayCanvas" width="2000" height="2000" style="display:none;"></canvas>
+        <div class="station-out-box subway-content" style="width:2000px;height:2000px;position:absolute;top:0; left:0;display:none;"></div>
+    </div>
+    <!-- 城市切换页面 -->
+    <div id="citypage">
+        <div class="top_bar">
+            <div class="back_btn" id="back_subway"></div>
+            <span class="city_title">切换城市</span>
+        </div>
+        <div class="citylist_wrap">
+            <ul class="citylist" id="citylist"></ul>
+        </div>
+    </div>
+    <!-- 搜索页面 -->
+    <div id="srhpage">
+        <div class="top_bar">
+            <div class="back_btn" id="back_ipt"></div>
+            <div class="srh_wrap">
+                <input type="text" class="srh_ipt" id="srh_ipt" autofocus="autofocus" placeholder="输入起点">
+            </div>
+        </div>
+        <div class="srhlist_wrap">
+            <div class="near_st"></div>
+            <div class="sug_err hidden">抱歉，未找到相关站点，请重新输入</div>
+            <ul class="srhlist hidden" id="srhlist"></ul>
+        </div>
+    </div>
+    <!-- loading -->
+    <div class="loading-bg" id="loading">
+        <div class="loading-outer">
+            <div class="loading">
+                <img class="loading-img" src="./img/subway/loading.gif">
+                <div class="loading-txt">正在加载，请稍候...</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var userAgent = navigator.userAgent;
+    var os = userAgent.match(/iphone|ipad|ipod/i) ? 'ios' : 'android';
+    var osbody = document.getElementById('os');
+    if(os === 'ios'){
+        osbody.className = 'ios'
+    }else{
+        osbody.className = 'android'
+    }
+</script>
+<!-- //build:js js/main.min.js -->
+<script type="text/javascript" src="./js/lib/zepto.min.js"></script>
+<script type="text/javascript" src="./js/lib/fastclick.js"></script>
+<script type="text/javascript" src="./js/lib/hammer.js"></script>
+<script type="text/javascript" src="./js/subway/amapCache.js"></script>
+<script type="text/javascript" src="./js/subway/common.js"></script>
+<script type="text/javascript" src="./js/subway/drw.js"></script>
+<script type="text/javascript" src="./js/subway/main.js"></script>
+<!--// /build -->
+<script type="text/javascript">
+    SW.swInit();
+</script>
+</body>
+</html>

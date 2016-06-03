@@ -1,0 +1,140 @@
+@charset "utf-8";
+/**
+  * 通用样式开始
+  */
+html,body, dl, dd, /* dt, 默认没边距 */
+ul, ol, /*li, 默认没边距 */
+h1, h2, h3, h4, h5, h6, pre, /* code, 默认没边距 */
+form, fieldset, legend, input, textarea, optgroup,
+p, blockquote, figure, hr, menu, dir,
+thead, tbody, tfoot, th, td /* th, td 默认 padding:1px */
+{   margin:0;
+    padding:0; 
+	font-family: "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+/*防止 iOS 横屏字号放大,-webkit-backface-visibility隐藏被旋转的 div 元素的背面*/
+body {
+	color: #3f3f3f;
+    font-size: 14px;
+	-webkit-text-size-adjust:none;
+	-webkit-backface-visibility: hidden;
+	-webkit-user-select: none;
+}
+
+/**
+ * 非大面积文字排版网站通常不需要列表项，如果需要可单独设置
+ */
+ul, ol {list-style-type: none;list-style-image: none;}
+/**
+ * 去除链接默认的下划线，提高文字可读性
+ */
+a {text-decoration: none; background-color: transparent;}
+
+/* 处理“outline”在Chrome浏览器中和其它浏览器之间的不一致*/
+a:focus {
+    outline:thin dotted;  
+}
+/**
+ * 去掉点击时的焦点框，同时保证使用键盘可以显示焦点框
+ */
+a:active,a:hover {outline: 0;}
+
+img { vertical-align: middle;}
+img,a img { border: 0; outline:none;}
+
+/*闭合浮动*/
+.clearfix:before,.clearfix:after {
+    content: "";
+    display: table;
+}
+.clearfix:after { clear: both;}
+.clearfix {
+    *zoom: 1; /* IE6-7 触发 hasLayout */
+}
+
+.border-top { position: relative;}
+.border-top:before {
+    z-index: 99;
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 1px;
+    width: 100%;
+    -webkit-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    background: #d0d0d0;
+}
+
+.border-bottom { position: relative;}
+.border-bottom:after {
+    z-index: 99;
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 1px;
+    width: 100%;
+    -webkit-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    background: #d0d0d0;
+}
+/*禁止换行，超出部分带省略号*/
+.overflow {overflow: hidden;white-space: nowrap; text-overflow: ellipsis;}
+
+.shuzi {font-family:Helvetica Neue,Helvetica,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif;}
+.bold{ font-weight: bold;}
+.block { display: block;}
+.b { border:1px solid red;}
+/*盒模型*/
+.box-model {display:box; display:-webkit-box;display:-moz-box;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}	
+.box-pack { -webkit-box-pack: justify;-moz-box-pack:justify; -ms-box-pack:justify;-o-box-pack:justify;}
+.flex {-webkit-box-flex:1;-moz-box-flex:1;-o-box-flex:1; flex-box:1;}
+
+/*修正未定义为「block」的元素*/
+article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary { display: block;}
+
+/**
+  * 表单元素通用样式
+  */
+label{ vertical-align:middle; *vertical-align: middle;}
+/*取消chrome下textarea可拖动放大*/
+textarea{overflow:auto; resize: vertical;}
+button {overflow: visible;}
+/* 1. 更正所有浏览器中字体不继承的问题 2. 更正所有浏览器中字号不继承的问题 3. 更正 Firefox 4+， Safari 5 和 Chrome 中外边距不同的问题；取消chrome下input和textarea的聚焦边框*/
+button,input,optgroup,select,textarea { margin: 0;font: inherit;color: inherit; outline:none}
+/*更正 Firefox 4+ 用户代理样式表（UA stylesheet）中在‘input’上,设置‘line-height’时使用‘!important’的问题*/
+button, input { line-height: normal; }
+button,select { text-transform: none;}
+button,html input[type="button"],input[type="reset"],input[type="submit"] { -webkit-appearance: button; cursor: pointer;}
+button[disabled],html input[disabled] { cursor: default;}
+button::-moz-focus-inner,input::-moz-focus-inner { padding: 0; border: 0;}
+input { line-height: normal;}
+input[type="checkbox"],input[type="radio"] {  -webkit-box-sizing: border-box; box-sizing: border-box; padding: 0;}
+input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button { height: auto;}
+input[type="search"] {  -webkit-box-sizing: content-box;  box-sizing: content-box; -webkit-appearance: textfield;}
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+ /* 定义一致的边框、内边距和外边距 */
+fieldset { padding: .35em .625em .75em;margin: 0 2px; border: 1px solid #c0c0c0;}
+legend { padding: 0; border: 0;}
+optgroup { font-weight: bold;}
+
+
+
+
+
+
+
+
+
+
+

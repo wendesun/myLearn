@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<script src="../js/jquery-1.11.3.min.js"></script>
+<script>
+    $(function(){
+        $("input[type='button']").click(function(){
+           /* $.post("https://api.gitcafe.com/api/v1/user/public_keys",
+                    {"title":"测试post请求","key":"sunwende","fingerprint":"hello word"},
+                    function(data,status){
+                        alert("Data: " + data + "\nStatus: " + status);
+                    }
+            );*/
+            $.post("select.html",{"title":"测试post请求","key":"sunwende","fingerprint":"hello word"},function(data,status){
+                alert("aaaa");
+            });
+        });
+    });
+</script>
+<body>
+
+<input type="button" value="提交"/>
+</body>
+</html>

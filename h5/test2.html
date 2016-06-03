@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        .search-zone{}
+        .search-condition{ white-space: nowrap; padding: 10px 20px 10px 0px; float: left;}
+        .search-condition select{ display: inline;}
+        .search-condition label{ padding-right: 10px;}
+    </style>
+</head>
+<body>
+
+<div class="search-condition">
+    <label>&emsp;&emsp;地区：</label><select name="" id="" class="select_text2 border-grey">
+    <option value="" selected>请选择省</option>
+    <option value="">北京</option>
+    <option value="">上海</option>
+    <option value="">广州</option>
+</select>&nbsp;
+    <select name="" id="" class="select_text2 border-grey">
+        <option value="" selected>请选择市</option>
+        <option value="">北京</option>
+        <option value="">上海</option>
+        <option value="">广州</option>
+    </select>
+</div>
+<div class="search-condition">
+    <label>报名机构：</label><select name="" id="" class="select_text1 border-grey">
+    <option value="" selected>请选择市</option>
+    <option value="">北京</option>
+    <option value="">上海</option>
+    <option value="">广州</option>
+</select>
+</div>
+<div class=" search-condition"><label>更新日期：</label><input type="text" onclick="calendar_n(event)" readonly class="date border-grey" name="time_start" value="<{$query.time_start}>">&nbsp;&nbsp;&nbsp;至&nbsp;&nbsp;&nbsp;<input type="text" onclick="calendar_n(event)" readonly class="date border-grey"  name="time_end" value="<{$query.time_end|date_format:'%Y-%m-%d'}>"></div>
+<div class=" search-condition">
+    <label>证件号码：</label><input type="text" class="input_text border-grey" name="updater" value="<{$query.updater}>"/>
+</div>
+<div class=" search-condition">
+    <label>&emsp;注册号：</label><input type="text" class="input_text border-grey" name="updater" value="<{$query.updater}>"/>
+</div>
+<div class=" search-condition">
+    <label>绑定手机：</label><input type="text" class="input_text border-grey" name="updater" value="<{$query.updater}>"/>
+</div>
+<div class=" search-condition">
+    <label>学生姓名：</label><input type="text" class="input_text border-grey" name="updater" value="<{$query.updater}>"/>
+</div>
+<div class=" search-condition">
+    <label>&emsp;&emsp;状态：</label><select name="" class="select_text2 border-grey">
+    <option value="" selected>全部</option>
+    <option value="">待完善</option>
+    <option value="">待审核</option>
+    <option value="">通过</option>
+    <option value="">未通过</option>
+</select>
+</div>
+
+<div class=" search-condition">
+    <label>年纪：</label><select name="" id="" class="select_text2 border-grey">
+    <option value="" selected>全部</option>
+    <option value="">待完善</option>
+    <option value="">待审核</option>
+    <option value="">通过</option>
+    <option value="">未通过</option>
+</select>
+</div>
+<div class=" search-condition">
+    <label>组别：</label><select name="" id="" class="select_text2 border-grey">
+    <option value="" selected>全部</option>
+    <option value="">已禁用</option>
+    <option value="">已启用</option>
+</select>
+</div>
+</div>
+<div class="search-condition" style="padding-left: 80px;">
+    <input type="button" value="查询" id="search" class="input_btn2 bg-orange" />
+</div>
+
+</body>
+</html>

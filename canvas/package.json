@@ -1,0 +1,42 @@
+{
+  "line1": [
+        {
+          "lineWidth": "5",
+          "start":["100","100"],
+          "end":["300","100"],
+          "strokeStyle":"red"
+        },
+        {
+          "lineWidth": "5",
+          "start":["300","100"],
+          "end":["500","100"],
+          "strokeStyle":"green"
+        },
+        {
+          "lineWidth": "5",
+          "start":["500","100"],
+          "end":["700","100"],
+          "strokeStyle":"blue"
+        }
+  ],
+  "line2": [
+    {
+      "lineWidth": "5",
+      "start":["100","110"],
+      "end":["300","110"],
+      "strokeStyle":"red"
+    },
+    {
+      "lineWidth": "5",
+      "start":["300","110"],
+      "end":["500","110"],
+      "strokeStyle":"green"
+    },
+    {
+      "lineWidth": "5",
+      "start":["500","110"],
+      "end":["700","110"],
+      "strokeStyle":"blue"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+#loadMore{ width:90%; height:35px; line-height:35px; background-color:#999; border-radius:5px;-webkit-border-radius:5px;-moz-border-radius:5px;}
+</style>
+<script src="jquery-1.11.3.min.js"></script>
+<script>
+$(function(){
+	var page={	
+		init:function(){
+			this.bindLoadMoreEvent(); 		
+		},
+		bindLoadMoreEvent:function(){
+			$("#loadMore").click(function(){
+				$("#loading").show();
+			}),function(){
+				alert(111111);
+				//window.setTimeout("this.appendContent()",1000);
+				$("#content").append("<p>这是由 CSS2.1 规定的宽度高度行为。</p><p>这是由 CSS2.1 规定的宽度高度行为。</p><p>这是由 CSS2.1 规定的宽度高度行为。</p><p>这是由 CSS2.1 规定的宽度高度行为。</p><p>这是由 CSS2.1 规定的宽度高度行为。</p><p>这是由 CSS2.1 规定的宽度高度行为。</p><p>这是由 CSS2.1 规定的宽度高度行为。</p>");	
+			};	
+		},
+		appendContent:function(){
+			$("#content").append("<p>这是由 CSS2.1 规定的宽度高度行为。</p><p>这是由 CSS2.1 规定的宽度高度行为。</p><p>这是由 CSS2.1 规定的宽度高度行为。</p><p>这是由 CSS2.1 规定的宽度高度行为。</p><p>这是由 CSS2.1 规定的宽度高度行为。</p><p>这是由 CSS2.1 规定的宽度高度行为。</p><p>这是由 CSS2.1 规定的宽度高度行为。</p>");	
+		}	
+	};
+	page.init();
+});
+
+
+</script>
+</head>
+
+<body>
+
+<div id="content">
+	<p>这是由 CSS2.1 规定的宽度高度行为。</p>
+    <p>这是由 CSS2.1 规定的宽度高度行为。</p>
+    <p>这是由 CSS2.1 规定的宽度高度行为。</p>
+    <p>这是由 CSS2.1 规定的宽度高度行为。</p>
+    <p>这是由 CSS2.1 规定的宽度高度行为。</p>
+    <p>这是由 CSS2.1 规定的宽度高度行为。</p>
+</div>
+<div id="loadMore" align="center"><a href="javascript:;">查看更多</a></div>
+<div id="loading" align="center" style="display:none"><img src="images/line_loading.gif"/></div>
+</body>
+</html>

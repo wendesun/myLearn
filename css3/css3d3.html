@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        *{ padding: 0; margin: 0;}
+        .container {
+            display: block;
+            width: 200px;
+            height: 200px;
+            margin-bottom: 50px;
+            border: 1px solid #bbb;
+        }
+        .box {
+            width: 100%;
+            height: 100%;
+            opacity: .75;
+        }
+
+        #darkred .box {
+            background-color: darkred;
+            transform: perspective(600px) rotateY(45deg);
+        }
+
+        #darkblue {
+            perspective: 600px;
+
+        }
+        #darkblue .box {
+            background-color: darkblue;
+            transition: transform 1s ease;
+            position: relative;
+
+        }
+        #darkblue .text{
+            width: 200px;
+            height: 200px;
+            background-color: #000;
+            position: absolute;
+            top: -200px;
+            left: 0px;
+            transform: rotateY(-180deg) ;
+
+        }
+        #darkblue:hover .box:nth-child(1){
+            transform: rotateY(180deg) ;
+        }
+        #darkblue:hover .box:nth-child(2){
+            transform: rotateY(180deg) ;
+        }
+
+
+
+
+    </style>
+</head>
+
+<body>
+
+<section id="darkred" class="container">
+    <div class="box"></div>
+</section>
+
+<section id="darkblue" class="container">
+    <div class="box"><img src="../images/1.jpg" alt="" width="200" height="200" class="img"/></div>
+    <div class="box"><div class="text" style="color: #FFFFFF">aaaaaaaaaa</div></div>
+</section>
+
+</body>
+</html>
+
+

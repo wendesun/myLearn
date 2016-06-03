@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script src="jquery-1.11.3.min.js"></script>
+<canvas id="canvas" width="320" height="400" style="border: 1px solid #ccc;"></canvas>
+<script>
+    $(function(){
+        var canvas=$("#canvas");
+        var ctx=canvas[0].getContext("2d");
+        ctx.strokeRect(5,5,100,50);
+        ctx.translate(5,5);
+        ctx.scale(2,2);
+        ctx.translate(-5,-5);
+
+        ctx.clearRect(0,0,canvas.width(),canvas.height());
+        ctx.strokeRect(5,5,100,50);
+    });
+</script>
+
+</body>
+</html>

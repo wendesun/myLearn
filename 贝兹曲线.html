@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+/*按钮图标*/
+.drawer-hamberger {
+	position:fixed;
+	z-index:1000;
+	display:block;
+	width:30px;
+	height:30px;
+	padding:20px;
+	background-color:#e7e7e7;
+	border:0
+}
+.drawer-hamberger span {
+	margin-top:10px
+}
+.drawer-hamberger span,.drawer-hamberger span:before,.drawer-hamberger span:after {
+	position:absolute;
+	display:block;
+	width:30px;
+	height:2px;
+	cursor:pointer;
+	content:'';
+	background-color:#535353;
+	border-radius:1px;
+	-webkit-transition:all .4s cubic-bezier(0.19,1,.22,1);
+	-o-transition:all .4s cubic-bezier(0.19,1,.22,1);
+	transition:all .4s cubic-bezier(0.19,1,.22,1)
+}
+.drawer-hamberger span:before {
+	top:-10px
+}   
+.drawer-hamberger span:after {
+	bottom:-10px
+}
+.drawer-open .drawer-hamberger span {
+	background-color:transparent
+}
+.drawer-open .drawer-hamberger span:before,.drawer-open .drawer-hamberger span:after {
+	top:0
+}
+.drawer-open .drawer-hamberger span:before {
+	-webkit-transform:rotate(45deg);
+	-ms-transform:rotate(45deg);
+	-o-transform:rotate(45deg);
+	transform:rotate(45deg);
+
+}
+.drawer-open .drawer-hamberger span:after {
+	-webkit-transform:rotate(-45deg);
+	-ms-transform:rotate(-45deg);
+	-o-transform:rotate(-45deg);
+	transform:rotate(-45deg);
+}
+.drawer-hamberger:hover {
+	cursor:pointer
+}
+</style>
+</head>
+
+<body>
+
+<div class="drawer-open"><div class="drawer-hamberger"><span></span></div></div>
+
+</body>
+</html>

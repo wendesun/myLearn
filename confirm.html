@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">  
+<HTML>  
+<HEAD>  
+<TITLE> New Document </TITLE>  
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />  
+<META NAME="Generator" CONTENT="EditPlus">  
+<META NAME="Author" CONTENT="zourinet">  
+<META NAME="Keywords" CONTENT="">  
+<META NAME="Description" CONTENT="">  
+<!-- <link rel="Stylesheet" type="text/css" charset="utf-8" href="http://hi.images.csdn.net/css/admin/StyleSheet.css" mce_href="http://hi.images.csdn.net/css/admin/StyleSheet.css" media="screen" /> -->  
+    <mce:style type="text/css"><!--  
+#PopupWindow  
+{  
+    position: absolute;  
+    display: none;  
+    font-size: 12px;  
+    font-weight: bold;  
+    padding: 0 0 12px 0;  
+    margin: -8px 0 0 0;  
+    background: transparent url( 'http://hi.images.csdn.net/css/admin/Images/deletepopupwindow_quotearrow.gif' ) no-repeat right bottom;  
+}  
+#PopupWindow div  
+{  
+    background: #fff;  
+    border: solid 1px #666;  
+    border-bottom: 0;  
+    text-align: right;  
+    padding: 5px 10px;  
+    width: 150px;  
+    line-height: 20px;  
+}  
+#PopupWindow a  
+{  
+    margin: 0 5px 0 5px;  
+    padding: 10px 0 0 0;  
+    font-size: 12px;  
+    font-weight: normal;  
+}  
+body{  
+    text-align:center;  
+    font-size: 12px;  
+}  
+--></mce:style><style type="text/css" mce_bogus="1">#PopupWindow  
+{  
+    position: absolute;  
+    display: none;  
+    font-size: 12px;  
+    font-weight: bold;  
+    padding: 0 0 12px 0;  
+    margin: -8px 0 0 0;  
+    background: transparent url( 'http://hi.images.csdn.net/css/admin/Images/deletepopupwindow_quotearrow.gif' ) no-repeat right bottom;  
+}  
+#PopupWindow div  
+{  
+    background: #fff;  
+    border: solid 1px #666;  
+    border-bottom: 0;  
+    text-align: right;  
+    padding: 5px 10px;  
+    width: 150px;  
+    line-height: 20px;  
+}  
+#PopupWindow a  
+{  
+    margin: 0 5px 0 5px;  
+    padding: 10px 0 0 0;  
+    font-size: 12px;  
+    font-weight: normal;  
+}  
+body{  
+    text-align:center;  
+    font-size: 12px;  
+}</style>  
+    <mce:script type="text/javascript"><!--  
+          
+        var _doPostBack;  
+          
+        function Confirm(elem)  
+        {  
+            _doPostBack = elem.href;  
+            var top = elem.offsetTop;   
+            var left = elem.offsetLeft;  
+            while(elem = elem.offsetParent)  
+            {  
+                 top += elem.offsetTop;  
+                 left += elem.offsetLeft;  
+            }  
+            var popupWindow = document.getElementById("PopupWindow");  
+            popupWindow.style.display = "block";  
+            popupWindow.style.left = left - 70 + "px";  
+            popupWindow.style.top = top - 70 + "px";  
+              
+            return false;  
+        }  
+          
+        function Delete()  
+        {  
+            eval(_doPostBack);  
+        }  
+          
+        function Hide()  
+        {  
+            document.getElementById("PopupWindow").style.display = "none";  
+        }  
+          
+        function OnFocus(elem)  
+        {  
+            if(elem.value == "找人…")  
+                elem.value = '';  
+        }  
+          
+      
+// --></mce:script>  
+    <mce:script type="text/javascript"><!--  
+var theForm = document.forms['aspnetForm'];  
+if (!theForm) {  
+    theForm = document.aspnetForm;  
+}  
+function __doPostBack(eventTarget, eventArgument) {  
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {  
+        theForm.__EVENTTARGET.value = eventTarget;  
+        theForm.__EVENTARGUMENT.value = eventArgument;  
+        theForm.submit();  
+    }  
+}  
+// --></mce:script>  
+</HEAD>  
+  
+<BODY>  
+<form method="post" action="" name="aspnetForm">  
+<br><br><br><br><br><br>  
+<div>  
+<a onclick="return Confirm(this);" id="ctl00_cphContent_rprSelectionList_ctl01_lkbDelete" href="javascript:__doPostBack('ctl00$cphContent$rprSelectionList$ctl01$lkbDelete','')" mce_href="javascript:__doPostBack('ctl00$cphContent$rprSelectionList$ctl01$lkbDelete','')">删除</a>  
+</div>  
+    <div id="PopupWindow" style="display:none" mce_style="display:none">  
+        <div>  
+            <p>   您确定要删除吗？</p>  
+            <a href="javascript:Delete()" mce_href="javascript:Delete()" id="delete">删除</a><a href="javascript:Hide()" mce_href="javascript:Hide()">取消</a>  
+        </div>  
+    </div>  
+</form>  
+</BODY>  
+</HTML>  

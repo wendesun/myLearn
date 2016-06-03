@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title> Canvas Demo</title>
+</head>
+<body>
+
+<canvas id="canvas" width="320" height="400" style="border: 1px solid #ccc;"></canvas>
+<input type="text" id="z"/>
+<input type="button" id="s" value="放大" />
+<input type="button" id="r" value="重置"/>
+<script src="jquery-1.11.3.min.js"></script>
+<script src="js/touch-0.2.14.min.js"></script>
+<script>
+
+
+    $(function(){
+        var _canvas=$('#canvas');
+        var _ctx=_canvas[0].getContext('2d');
+        var _vmouse=[0,0];
+
+        function init(){
+            drawRect();
+            scaleFn();
+            resetFn();
+            touchFn();
+        }
+
+
+
+        function drawRect(){
+            _ctx.lineWidth=3;
+            _ctx.strokeStyle="red";
+
+            _ctx.beginPath();
+            _ctx.rect(10,10,150,100);
+            _ctx.stroke();
+
+            _ctx.beginPath();
+            _ctx.lineTo(0,50);
+            _ctx.lineTo(300,50);
+            _ctx.stroke();
+
+            _ctx.fillStyle="rgba(0,0,0,0.2)";
+            _ctx.beginPath();
+            _ctx.arc(_vmouse[0],_vmouse[1],10,0,Math.PI*2,true);
+            _ctx.closePath();
+            _ctx.fill();
+
+        }
+
+        function scaleFn(){
+            $("#s").click(function(){
+                _ctx.save()
+                reset();
+                _ctx.restore();
+
+                _ctx.translate(_vmouse[0], _vmouse[1]);
+                console.log(_vmouse[0],_vmouse[1]);
+                _ctx.scale(parseFloat($("#z").val()), parseFloat($("#z").val()));
+                _ctx.translate(-_vmouse[0], -_vmouse[1]);
+
+
+                drawRect();
+
+            });
+        }
+
+        $('#canvas').mousedown(function(e){
+            _vmouse = [e.offsetX, e.offsetY];
+            reset();
+            drawRect();
+          /*  $('#canvas').mousemove(function(e){
+                _vmouse1 = [e.offsetX, e.offsetY];
+
+                reset();
+                _ctx.translate(_vmouse1[0], _vmouse1[1]);
+                console.log(_vmouse1[0],_vmouse1[1]);
+                drawRect();
+            });*/
+        });
+
+
+
+
+
+
+        function resetFn(){
+            $("#r").click(function(){
+                reset();
+                drawRect();
+            })
+        }
+        function reset(){
+            _ctx.setTransform(1, 0, 0, 1,0,0);
+            _ctx.clearRect(0,0,_canvas.width(),_canvas.height());
+
+        }
+
+        var initialScale = 1;
+        var currentScale;
+        var target = document.getElementById("target");
+        touch.on('#target', 'touchstart', function(ev){
+            ev.preventDefault();
+        });
+
+        touch.on('#target', 'pinchend', function(ev){
+            currentScale = ev.scale - 1;
+            currentScale = initialScale + currentScale;
+            currentScale = currentScale > 10 ? 10 : currentScale;
+            currentScale = currentScale < 1 ? 1 : currentScale;
+
+            _ctx.save()
+            reset();
+            _ctx.restore();
+            _ctx.translate(_vmouse[0], _vmouse[1]);
+            console.log(_vmouse[0],_vmouse[1]);
+            _ctx.scale(parseFloat(currentScale), parseFloat(currentScale));
+            _ctx.translate(-_vmouse[0], -_vmouse[1]);
+            drawRect();
+
+            console.log("当前缩放比例为:" + currentScale + ".");
+        });
+
+        touch.on('#target', 'pinchend', function(ev){
+            initialScale = currentScale;
+
+            _ctx.save()
+            reset();
+            _ctx.restore();
+            _ctx.translate(_vmouse[0], _vmouse[1]);
+            console.log(_vmouse[0],_vmouse[1]);
+            _ctx.scale(parseFloat(initialScale), parseFloat(initialScale));
+            _ctx.translate(-_vmouse[0], -_vmouse[1]);
+            drawRect();
+        });
+
+        init();
+
+    });
+
+</script>
+
+
+</body>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="base.css"/>
+
+</head>
+<body>
+<div class="clearfix width1256">
+
+    <div class="float-right">
+        <div class="main-demand">
+            <div class="demand">
+                <div class="m-bottom20 relative h40 font-size0" style="z-index:5;">
+                    <span class="label">家庭住址</span>
+                    <span class="input-suggest">
+                    <input id="start" type="text" class="input-text1"/>
+                    <input id="start_city" type="hidden" value=""/>
+                    <input id="start_region" type="hidden" value="" />
+                    <input id="start_lnglat" type="hidden" value="" />
+                    <div id="suggestStart" class="suggest">
+                        <ul>
+                        </ul>
+                    </div>
+                    </span>
+                    <div id="errStart" class="absolute main-bubble hide">
+                        <div class="bubble"><span class="icon-sorrow"></span><span class="close1"></span>请输入家庭住址</div>
+                    </div>
+
+                </div>
+                <div class="relative m-bottom20 h40 font-size0" style="z-index:4;">
+                    <span class="label">公司地址</span>
+                            <span class="input-suggest">
+                            <input id="end" type="text" class="input-text2"/>
+                            <input id="end_city" type="hidden" value=""/>
+                            <input id="end_region" type="hidden" value="" />
+                            <input id="end_lnglat" type="hidden" value="" />
+                            <div id="suggestEnd" class="suggest hide">
+                                <ul>
+                                </ul>
+                            </div>
+                            </span>
+                    <div id="errEnd" class="absolute main-bubble hide">
+                        <div class="bubble"><span class="icon-sorrow"></span><span class="close1"></span>请输入公司地址</div>
+                    </div>
+
+                </div>
+
+
+                <input id="submit" type="button" class="demand-btn" value="提交"/>
+                <div class="text-center grey-color1 font14">以上信息爱帮巴士为您严格保密，在线路开通后第一时间告知您！</div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="jquery-1.11.3.min.js"></script>
+<script src="address.js"></script>
+<!--<script src="base_ui.js"></script>-->
+<!--<script src="bashidemand.js"></script>-->
+
+<script>
+    $(function(){
+        function onSelectStart(name, city, region, lnglat){
+            $("#start").val(name);
+            $("#start_city").val(city);
+            $("#start_region").val(region);
+            $("#start_lnglat").val(lnglat);
+        }
+        //onSelectStart 为可扩展业务逻辑回调函数
+        AB.Address("#start","#suggestStart",onSelectStart);
+    });
+</script>
+</body>
+</html>

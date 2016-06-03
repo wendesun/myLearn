@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        .all-picture { width: 1116px; height: 890px; overflow: hidden; margin:0 auto;  position: relative;}
+        .enterprise_culture { position: absolute;  width: 396px; height: 290px; border: 1px solid #fff;}
+        .culture1{ top:0; right: 0; }
+        .culture2{ top:296px; left: 360px; }
+        .culture3 { bottom:7px; left: 0; }
+
+        .enterprise_culture {
+            perspective: 1200px; /* 透视视图 */
+            float:left;
+        }
+
+        .photo-container:hover .rotate-box{
+            transform: rotateY(180deg);
+        }
+        .photo-container:hover .text{opacity:1}
+        .text {
+            position:absolute;top:0; z-index: 999;
+            width:100%;height:100%;
+            transform: rotateY(180deg) translateZ(1px); /* 反转180度 并设置z轴让其置于图片背面 */
+            color:#fff;
+            opacity:.01;
+            background:rgba(0,0,0,.5);
+            transition: 1s opacity;
+        }
+        .text p { font-size:12px; color:#fff;margin-left: 20px;}
+        .m-bottom25{ margin-bottom: 20px;}
+
+        .rotate-box {width:396px; height:290px; overflow: hidden;}
+        .rotate-box img {width:396px; height:290px;}
+        .rotate-box {
+            position:relative;
+            transform-style: preserve-3d; /* 3D 转换 */
+            transition:1s ease; /* 转换效果持续 1秒 */
+        }
+        .rotate-box:after {
+            content:' ';
+            display:block;
+            width:100%;
+            height:7vw; /* vw是移动设计备窗体单位*/
+            transform:rotateX(90deg);
+
+        }
+    </style>
+</head>
+<body>
+<div class="all-picture">
+<div class="enterprise_culture culture1">
+    <div class="photo-container">
+        <div class="rotate-box">
+            <img src="../images/culture1.png" />
+            <div class="text">
+                <p class="m-bottom25" style="margin-top:8px;">我们具备</p>
+                <p>我们沉着又不失稳重，斗志的火焰一直在燃烧着。</p>
+                <p class="m-bottom25">就像海贼王不灭的“one piece”精神。</p>
+                <p>我们像行驶在伟大航路上的黄金梅里号。</p>
+                <p class="m-bottom25">敬业而且战果累累。</p>
+                <p>我们以心相待，每一次的告别都包含热泪与不舍。</p>
+                <p class="m-bottom25">但又举起了拳头，衷心的为你祝福。</p>
+                <p>在这片广阔的海域，我们一直在冒险，在探索。</p>
+                <p class="m-bottom25">但我们还需要一个你，与我们一同乘风破浪。</p>
+                <p>来吧！还有无数未知的岛屿，等待你和我们一起登陆！</p>
+
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+</body>
+</html>

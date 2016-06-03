@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+div{ width:200px; height:20px; margin:10px 0;}
+.red{ background-color:#F00}
+.yellow{ background-color:#FF0}
+.blue{ background-color:#00F;}
+.black{ background-color:#000;}
+.green{ background-color:#0F0;}
+</style>
+<script src="jquery-1.11.3.min.js"></script>
+<script>
+//jQuery对象级别插件
+;(function($){
+	$.fn.color =function(value){
+		return this.css("background-color",value);
+	};
+	
+	$.fn.color.test=function(id,msg){
+		this.click(function(){
+			return $(id).html(msg);
+		});
+	};
+	
+	
+})(jQuery);
+
+
+$(function(){
+	$("#div1").color("#0F0");
+	$("#btn").color.test("#div3","测试信息");
+	//$("#div1").css("background-color","#000");
+});
+
+</script>
+</head>
+
+<body>
+<div class="red" id="div1"></div>
+<div class="yellow" id="div2"></div>
+<div class="blue" id="div3"></div>
+<input type="button" value="按钮" id="btn"/>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        /*兑换验证密码*/
+        .inline-block{ display: inline-block}
+        .relative{ position: relative;}
+        .hide{display: none}
+        .validate{ padding: 40px 0px 0px 100px;}
+        .validate  .validate_inpt{ width:400px  !important; height: 50px !important; padding: 0px 35px 0px 5px; font-size: 18px !important; }
+        .validate  .validate_btn{ width:130px  !important; height: 52px !important; }
+        .validate  .validate_close{ position: absolute; right: 5px; top: 10px; cursor: pointer; }
+        .validate  .padding10{ padding: 10px 0;}
+        .validate  .p-left140{ padding-left: 140px;}
+    </style>
+</head>
+<body>
+<div class="validate">
+    <div class="p-left140">请先验证兑换码，再提供商品</div>
+    <div class="padding10">
+        <form id="code_form">
+            <div class="inline-block relative">
+                <input type="text" class="input_text validate_inpt" name="code"/>
+                <img src="close2.png" alt="" class="validate_close hide" name="validate_close"/>
+            </div>
+            &nbsp;&nbsp;&nbsp;&nbsp;<input id="validate" type="button" value="验证" class="btn-grey validate_btn"/>
+        </form>
+    </div>
+    <div class="color-red hide" name="error" data-name="code"></div>
+</div>
+<script src="jquery-1.11.3.min.js"></script>
+<script src="validate_code.js"></script>
+
+</body>
+</html>

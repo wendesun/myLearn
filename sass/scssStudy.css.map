@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAGA,IAAK;EACH,WAAW,EAJE,qBAAqB;EAKlC,KAAK,EAJQ,IAAI;;AAOnB,oCAAS;EACP,MAAM,EAAE,cAAc;EACtB,OAAO,EAAE,IAAI;EACb,KAAK,EAAE,IAAI;;AAGb,QAAS;EAEP,YAAY,EAAE,KAAK;;AAGrB,MAAO;EAEL,YAAY,EAAE,GAAG;;AAGnB,QAAS;EAEP,YAAY,EAAE,MAAM",
+"sources": ["scssStudy.scss"],
+"names": [],
+"file": "scssStudy.css"
+}

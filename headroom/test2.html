@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        *{ padding: 0; margin: 0}
+        .header {
+            background-color: #292f36
+        }
+        .header-fixed {
+            position: fixed;
+            z-index: 10;
+            right: 0;
+            left: 0;
+            top: 0
+        }
+
+        .header{ height: 80px; background: rgba(0,0,0,.8); position: fixed; left: 0; top: 0; right: 0;}
+        .main{ margin-top:80px; height: 1500px; border: 1px solid #ccc; }
+        .animated {
+            -webkit-animation-duration: .5s;
+            -moz-animation-duration: .5s;
+            -o-animation-duration: .5s;
+            animation-duration: .5s;
+            -webkit-animation-fill-mode: both;
+            -moz-animation-fill-mode: both;
+            -o-animation-fill-mode: both;
+            animation-fill-mode: both
+        }
+
+        @-webkit-keyframes slideDown {
+            0% {
+                -webkit-transform: translateY(-4em)
+            }
+
+            100% {
+                -webkit-transform: translateY(0)
+            }
+        }
+
+        @-moz-keyframes slideDown {
+            0% {
+                -moz-transform: translateY(-4em)
+            }
+
+            100% {
+                -moz-transform: translateY(0)
+            }
+        }
+
+        @-o-keyframes slideDown {
+            0% {
+                -o-transform: translateY(-4em)
+            }
+
+            100% {
+                -o-transform: translateY(0)
+            }
+        }
+
+        @keyframes slideDown {
+            0% {
+                transform: translateY(-4em)
+            }
+
+            100% {
+                transform: translateY(0)
+            }
+        }
+
+        .animated.slideDown {
+            -webkit-animation-name: slideDown;
+            -moz-animation-name: slideDown;
+            -o-animation-name: slideDown;
+            animation-name: slideDown
+        }
+
+        @-webkit-keyframes slideUp {
+            0% {
+                -webkit-transform: translateY(0)
+            }
+
+            100% {
+                -webkit-transform: translateY(-80px)
+            }
+        }
+
+        @-moz-keyframes slideUp {
+            0% {
+                -moz-transform: translateY(0)
+            }
+
+            100% {
+                -moz-transform: translateY(-80px)
+            }
+        }
+
+        @-o-keyframes slideUp {
+            0% {
+                -o-transform: translateY(0)
+            }
+
+            100% {
+                -o-transform: translateY(-80px)
+            }
+        }
+
+        @keyframes slideUp {
+            0% {
+                transform: translateY(0)
+            }
+
+            100% {
+                transform: translateY(-80px)
+            }
+        }
+
+        .animated.slideUp {
+            -webkit-animation-name: slideUp;
+            -moz-animation-name: slideUp;
+            -o-animation-name: slideUp;
+            animation-name: slideUp
+        }
+
+    </style>
+    <script src="./../js/jquery-1.11.3.min.js"></script>
+    <script src="Headroom.js"></script>
+
+    <script>
+        var myElement = document.querySelector("header");
+        // construct an instance of Headroom, passing the element
+        var headroom  = new Headroom(myElement);
+        // initialise
+        headroom.init();
+    </script>
+</head>
+<body>
+<div id="header" class="header header--fixed hide-from-print animated slideDown" role="banner">
+
+</div>
+<div class="main">aaaaaaa</div>
+</body>
+</html>

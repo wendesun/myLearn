@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="description" content="">
+<meta name="msapplication-tap-highlight" content="no">
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="refresh" content="5"><!--这个表示当前页面每5秒钟刷一下，刷一下~-->
+<meta http-equiv="refresh" content="2; url='/'"><!--这个表示当前页面2秒后跳到首页~-->
+<meta http-equiv="refresh" content="0; url='http://www.qq.com/'"><!--页面直接跳转到腾讯网~-->
+<title>meta与页面刷新</title> 
+<style>
+
+</style>
+</head>
+
+<body>
+<p>本页面每5秒刷新一下，这是您第<mark></mark>次进入本页面！</p>
+<script>
+if (window.localStorage) {
+	var metaRefresh = localStorage.metaRefresh || 0;
+	document.querySelector("mark").innerHTML = ++metaRefresh;
+	localStorage.metaRefresh = metaRefresh;
+}
+</script></body>
+</html>
+	

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" href="css/jquery.fullPage.css">
+    <link rel="stylesheet" href="css/mycss.css">
+
+
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/jquery.fullPage.js"></script>
+</head>
+<body>
+
+<div id="dowebok">
+    <div class="section section1">
+        <div class="stage">
+            <div class="nightOverlay"></div>
+            <div class="skyline"></div>
+            <div class="beans"></div>
+            <div class="ground back"></div>
+            <div class="ground mid"></div>
+            <div class="ground front"></div>
+            <div class="cloud large"></div>
+            <div class="cloud small"></div>
+            <div class="cloud medium"></div>
+            <div class="balloon"></div>
+            <div class="dowEventCenter"></div>
+            <div class="planetarium"></div>
+            <div class="friendshipShell"></div>
+            <div class="glockenspiel"></div>
+            <div class="rotation">
+                <div class="sun"></div>
+                <div class="moon"></div>
+            </div>
+        </div>
+    </div>
+    <div class="section section2">
+        <div class="slide"><img src="images/11.jpg"/> </div>
+        <div class="slide"><img src="images/12.jpg"/></div>
+        <div class="slide"><img src="images/13.jpg"/></div>
+        <div class="slide"><img src="images/14.jpg"/></div>
+        <div class="slide"><img src="images/15.jpg"/></div>
+    </div>
+    <div class="section section3">
+        <div id="left3">雾霾</div>
+        <div  id="right3">雾霾，是雾和霾的组合词。雾霾常见于城市。中国不少地区将雾并入霾一起作为灾害性天气现象进行预警预报，统称为“雾霾天气”。
+            雾霾是特定气候条件与人类活动相互作用的结果。高密度人口的经济及社会活动必然会排放大量细颗粒物（PM 2.5），
+            一旦排放超过大气循环能力和承载度，细颗粒物浓度将持续积聚，此时如果受静稳天气等影响，极易出现大范围的雾霾。</div>
+    </div>
+
+
+    <div class="section section4">
+        <div id="left4">
+        <p><b>雾霾究竟是何物</b></p>
+            <div id="bianda">
+                雾霾图片特效
+            </div>
+            <p>雾其实是一种无毒无害的自然现象，而霾的形成主要是空气中悬浮的大量微粒和气象条件共同作用的结果。雾霾常常相伴而生，雾霾同时出现，水汽、静风、逆温、凝结核等条件缺一不可。</p>
+        </div>
+
+        <!--右边侧栏-->
+        <div id="right4">
+            <!--上半部分-->
+            <div>
+            雾霾的组成<a href="#">更多</a><br>
+                <p>二氧化硫、氮氧化物和可吸入颗粒物是雾霾的主要组成。前两者为气态污染物，它们与雾气结合在一起，让天空瞬间变得灰蒙蒙的。</p>
+            </div>
+            <!--下半部分-->
+            <div>
+                大气气溶胶<a href="#">更多</a><br>
+                <p>近年来，我国中东部地区雾霾日益严重，主要是由人为排放的大气气溶胶显著增加所致，这当中就包括我们熟知的PM2.5，已不是完全的自然现象。</p>
+            </div>
+            <!--底部部分-->
+            <div>
+                <b>相关词条：</b>
+                <p><a href="#">细颗粒物</a><a href="#">氮氧化物</a><a href="#">二氧化硫</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function(){
+        //开启鼠标等监听方法，和设置每一屏的背景颜色
+        $("#dowebok").fullpage({
+            sectionsColor:['#0075D1', '#000000', '#FDF6E1', '#E9E9E9'],
+            //滚动到最底部是否回滚顶部。
+            loopbottom:true,
+            //设置导航链接
+            'navigation':true,
+            //设置项目导航左右-.-搞不定。。。
+           //设置个项目导航文字-.-这个也搞不定。。。
+
+
+        });
+        //设置第二屏的自动切换。。
+       setInterval(function(){
+            $.fn.fullpage.moveSlideRight();
+        },2000);
+
+
+    });
+
+
+</script>
+</body>
+</html>

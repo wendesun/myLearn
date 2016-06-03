@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        .circleProgress_wrapper{
+            width: 160px;
+            height: 160px;
+            position: absolute;
+            border:20px solid #0cc;
+            border-radius: 50%;
+            top: 10px;
+            left: 50px;
+        }
+        .wrapper{
+            width: 100px;
+            height: 200px;
+            position: absolute;
+            top:-20px;
+            overflow: hidden;
+        }
+        .right{
+            right:-20px;
+        }
+        .left{
+            left:-20px;
+        }
+        .circleProgress{
+            width: 160px;
+            height: 160px;
+            /*border:20px solid rgb(232, 232, 12);*/
+            border:20px solid transparent;
+            border-radius: 50%;
+            position: absolute;
+            top:0px;
+            -webkit-transform: rotate(45deg);
+        }
+        .rightcircle{
+            border-top:20px solid #FFFFFF;
+            border-right:20px solid #FFFFFF;
+            right:0px;
+            -webkit-animation: circleProgressLoad_right 5s linear ;
+        }
+        .leftcircle{
+            border-bottom:20px solid #FFFFFF;
+            border-left:20px solid #FFFFFF;
+            left:0px;
+            -webkit-animation: circleProgressLoad_left 5s linear ;
+        }
+       @-webkit-keyframes circleProgressLoad_right{
+          /*  0%{
+                border-top:20px solid #ED1A1A;
+                border-right:20px solid #ED1A1A;
+                -webkit-transform: rotate(45deg);
+            }
+           50%{
+                border-top:20px solid rgb(232, 232, 12);
+                border-right:20px solid rgb(232, 232, 12);
+                border-left:20px solid rgb(81, 197, 81);
+                border-bottom:20px solid rgb(81, 197, 81);
+                -webkit-transform: rotate(225deg);
+            }
+            100%{
+                border-left:20px solid green;
+                border-bottom:20px solid green;
+                -webkit-transform: rotate(225deg);
+            }*/
+           0%{-webkit-transform: rotate(45deg);}
+           50%{-webkit-transform: rotate(225deg);}
+           100%{-webkit-transform: rotate(225deg);}
+        }
+         @-webkit-keyframes circleProgressLoad_left{
+      /*      0%{
+                border-bottom:20px solid #ED1A1A;
+                border-left:20px solid #ED1A1A;
+                -webkit-transform: rotate(45deg);
+            }
+            50%{
+                border-bottom:20px solid rgb(232, 232, 12);
+                border-left:20px solid rgb(232, 232, 12);
+                border-top:20px solid rgb(81, 197, 81);
+                border-right:20px solid rgb(81, 197, 81);
+                -webkit-transform: rotate(45deg);
+            }
+            100%{
+                border-top:20px solid green;
+                border-right:20px solid green;
+                border-bottom:20px solid green;
+                border-left:20px solid green;
+                -webkit-transform: rotate(225deg);
+            }*/
+             0%{-webkit-transform: rotate(45deg);}
+             50%{-webkit-transform: rotate(45deg);}
+             100%{-webkit-transform: rotate(225deg);}
+        }
+    </style>
+</head>
+<body>
+<div style="position: relative"><img src="d009b3de9c82d1584d8c4deb860a19d8bc3e4259.jpg" width="356" height="250">
+ <div class="circleProgress_wrapper">
+        <div class="wrapper right">
+            <div class="circleProgress rightcircle"></div>
+        </div>
+        <div class="wrapper left">
+            <div class="circleProgress leftcircle"></div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

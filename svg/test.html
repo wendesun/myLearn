@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css" rel="stylesheet">
+        *{ padding: 0; margin: 0;}
+    </style>
+
+</head>
+<body>
+<svg width="640" height="480" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+    <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+    <defs>
+        <marker refY="50" refX="50" markerHeight="5" markerWidth="5" viewBox="0 0 100 100" se_type="mcircle" orient="auto" markerUnits="strokeWidth" id="se_marker_start_svg_1">
+            <circle stroke-width="10" stroke="#000000" fill="#000000" cy="50" cx="50" r="30"/>
+        </marker>
+        <marker refY="50" refX="50" markerHeight="5" markerWidth="5" viewBox="0 0 100 100" se_type="mcircle" orient="auto" markerUnits="strokeWidth" id="se_marker_end_svg_1">
+            <circle stroke-width="10" stroke="#000000" fill="#000000" cy="50" cx="50" r="30"/>
+        </marker>
+    </defs>
+    <g>
+        <title>Layer 1</title>
+        <polyline id="svg_1" marker-end="url(#se_marker_end_svg_1)" marker-start="url(#se_marker_start_svg_1)" fill="none" stroke-width="5" stroke="#000000" points="142.5,135.5 226.76817311417165,135.5 311.0363462283433,135.5"/>
+        <line id="svg_2" y2="136" x2="502.50068" y1="136" x1="319.5" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#ff007f" fill="none"/>
+        <rect id="svg_10" height="156" width="381" y="215" x="140" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#ff007f" fill="none"/>
+    </g>
+</svg>
+
+
+<svg id="svg" width="150" height="20"></svg>
+<svg id="svg1" width="150" height="20"></svg>
+
+<script src="snap.svg-min.js"></script>
+<script>
+    var svg = Snap("#svg");
+    var t1 = svg.paper.line(0, 0, 150, 0).attr({
+        stroke: "#F00",
+        strokeWidth: 10
+    });
+
+    var svg1 = Snap("#svg_10");
+    var t2 = svg1.paper.rect(140,215,5,156).attr({
+        stroke: "#000",
+        strokeWidth: 5,
+        fill:"#fff"
+    });
+    var t3 = svg1.paper.rect(140,215,5,156).attr({
+        stroke: "#000",
+        strokeWidth: 5,
+        fill:"#fff"
+    });
+</script>
+</body>
+</html>

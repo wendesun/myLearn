@@ -1,0 +1,75 @@
+{
+  "line1":[
+          {
+            "path": "M100 10L200 10",
+            "fill":"",
+            "stroke": "#2682af",
+            "strokeWidth": "5"
+          },
+          {
+            "path": "M200 10L300 10",
+            "fill":"",
+            "stroke": "#f00",
+            "strokeWidth": "5"
+          },
+          {
+            "path": "M300 10L400 10",
+            "fill":"",
+            "stroke": "#228d72",
+            "strokeWidth": "5"
+          },
+          {
+            "path": "M400 10L430 40",
+            "fill":"#fff",
+            "stroke": "#000",
+            "strokeWidth": "5"
+          },
+          {
+            "path": "M430 40L430 100",
+            "fill":"",
+            "stroke": "#f00",
+            "strokeWidth": "5"
+          },
+          {
+            "path": "M430 100L400 130",
+            "fill":"#fff",
+            "stroke": "#228d72",
+            "strokeWidth": "5"
+          },
+          {
+            "path": "M400 130L300 130",
+            "fill":"",
+            "stroke": "#2682af",
+            "strokeWidth": "5"
+          },
+          {
+            "path": "M300 130L200 130",
+            "fill":"",
+            "stroke": "#f00",
+            "strokeWidth": "5"
+          },
+          {
+            "path": "M200 130L100 130",
+            "fill":"",
+            "stroke": "#228d72",
+            "strokeWidth": "5"
+          },
+          {
+            "path": "M100 130L70 100",
+            "fill":"#fff",
+            "stroke": "#000",
+            "strokeWidth": "5"
+          },
+          {
+            "path": "M70 100L70 40",
+            "fill":"",
+            "stroke": "#f00",
+            "strokeWidth": "5"
+          },
+          {
+            "path": "M70 40L100 10",
+            "fill":"#fff",
+            "stroke": "#228d72",
+            "strokeWidth": "5"
+  }]
+}

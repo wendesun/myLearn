@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{ padding: 0; margin: 0;}
+    </style>
+    <script src="jquery-1.11.3.min.js"></script>
+    <script>
+        $(function(){
+            $(window).scroll(function(){
+                var h=$("#test")[0].offsetTop; //div距顶部的高度
+                var wh=$(window).height();//window窗口的高度
+                var dh=$(document).height();
+                var st=$(window).scrollTop(); //滚动条滚动的高度
+                console.log(h+"================"+dh+"================"+wh+"================"+st);
+            });
+        });
+    </script>
+</head>
+<body>
+    <div style="height: 500px; border: 1px solid #ff0033"></div>
+    <div id="test"  style="height: 100px; border: 1px solid #000"></div>
+</body>
+</html>

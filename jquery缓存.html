@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery缓存</title>
+<style type="text/css">
+ul{ list-style:none;}
+li{ width:100px; height:25px; background-color:#ff0033; margin-bottom:10px;}
+</style>
+<script src="jquery-1.11.3.min.js"></script>
+<script>
+$(function(){
+	
+	$("#menu li").each(function(){
+		var n=1
+		var aa={};
+		var id;
+		$(this).click(function(){
+			n++;
+			id=$(this).attr("data-hash");
+			alert(id);
+			$.data(aa,'id',id);
+			alert($.data(aa,'id'));
+			alert(n);
+		});
+		
+	});
+	
+});
+</script>
+</head>
+
+<body>
+
+<ul id="menu">
+    <li data-hash="dc">东城</li>
+    <li data-hash="xc">西城</li>
+    <li data-hash="cy">朝阳</li>
+    <li data-hash="ft">丰台</li>
+    <li data-hash="sjs">石景山</li>
+    <li data-hash="dx">大兴</li>
+</ul>
+
+
+</body>
+</html>

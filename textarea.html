@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<HTML>
+<HEAD>
+<TITLE>无滚动条Textarea自动适用高度</TITLE>
+<META NAME="Generator" CONTENT="EditPlus">
+<META NAME="Author" CONTENT="">
+<META NAME="Keywords" CONTENT="">
+<META NAME="Description" CONTENT="">
+<script src="jquery-1.11.3.min.js"></script>
+<script>
+$(function(){
+
+	$("#test").on("propertychange keyup",function(){
+		var h=$(this).get(0).scrollHeight;
+		//alert(h);
+		if(h>50){
+			$(this).css("height","0");
+			var h1=$(this).height()+$(this).get(0).scrollHeight;
+			$(this).css("height",h1);	
+		}		
+	});
+});
+</script>
+</HEAD>
+
+<BODY>
+   <textarea id="test" rows="1" style="overflow:hidden;height:50px; padding:0; margin:0; "></textarea>
+</BODY>
+</HTML>

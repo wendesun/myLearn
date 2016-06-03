@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+#tooltip{ position:absolute;}
+</style>
+<script src="jquery-1.11.3.min.js"></script>
+<script>
+$(function(){
+	var x=10;
+	var y=20;
+
+	$("a.tooltip").mouseover(function(e){
+		this.myTitle=this.title;
+		this.title="";
+		var  tooltip="<div id='tooltip'>"+this.myTitle+"</div>"
+		$("body").append(tooltip);
+		$("#tooltip").css({
+			"top": (e.pageY+y)+"px",
+			"left":(e.pageX+x)+"px"
+			}).show("fast");
+		
+	}).mouseout(function(){
+		this.title=this.myTitle;
+		$("#tooltip").remove();	
+	}).mousemove(function(e){
+		$("#tooltip").css({
+			"top": (e.pageY+y)+"px",
+			"left":(e.pageX+x)+"px"
+			});
+	});
+	
+	$("tr").each(function() {
+  
+		$(this).find("td:lt(3)").mouseover(function(e){
+			var  tooltip="<div id='tooltip'>点击可查看详情</div>"
+			$("body").append(tooltip);
+			$("#tooltip").css({
+				"top": (e.pageY+y)+"px",
+				"left":(e.pageX+x)+"px"
+				}).show("fast");
+		});
+  
+	}).mouseout(function(){
+		$("#tooltip").remove();	
+	}).mousemove(function(e){
+		$("#tooltip").css({
+			"top": (e.pageY+y)+"px",
+			"left":(e.pageX+x)+"px"
+			});
+	});
+
+});
+</script>
+</head>
+
+<body>
+<a href="#" class="tooltip" title="这是我的超链接提示">超链接</a>
+
+<table width="100%"  cellspacing="0" cellpadding="5" border="1"> 
+  <tr>
+    <td>1</td>
+    <td>2</td>
+    <td>3</td>
+    <td>4</td>
+    <td>5</td>
+  </tr>
+    <tr>
+    <td>1</td>
+    <td>2</td>
+    <td>3</td>
+    <td>4</td>
+    <td>5</td>
+  </tr>
+</table>
+
+</body>
+</html>

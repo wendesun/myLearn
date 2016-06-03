@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<p>要使用的图像：</p>
+<img id="tulip" src="eg_tulip.jpg" alt="The Tulip" />
+
+<p>画布：</p>
+<canvas id="myCanvas" width="500" height="300" style="border:1px solid #d3d3d3;background:#ffffff;">
+    Your browser does not support the HTML5 canvas tag.
+</canvas>
+<div id="msg"></div>
+<script>
+ window.onload=function(){
+    var canvas=document.getElementById("myCanvas");
+    var ctx=canvas.getContext("2d");
+    var img=document.getElementById("tulip");
+//    ctx.drawImage(img,10,10);
+//    ctx.drawImage(img,10,10,240,160);
+     ctx.drawImage(img,50,50,190,180,20,20,190,180);
+
+     var img,//图片对象
+             imgIsLoaded,//图片是否加载完成;
+             imgX=0,
+             imgY=0,
+             imgScale=1;
+
+     canvas.onmousedown=function(e){
+         var pos=windowToCanvas(canvas,event.clientX,event.clientY);
+//         document.getElementById("msg").innerHTML="pos.x="+pos.x +"  pos.y="+pos.y;
+         canvas.onmousemove=function(event){
+             canvas.style.cursor="move";
+             var pos1=windowToCanvas(canvas,event.clientX,event.clientY);
+             var x=pos1.x-pos.x;
+             var y=pos1.y-pos.y;
+//             document.getElementById("msg").innerHTML="pos1.x="+pos1.x +"  po1s.y="+pos1.y;
+             pos=pos1;
+             imgX+=x;
+             imgY+=y;
+//             drawImage();
+         }
+     }
+
+
+     function windowToCanvas(canvas,x,y){
+         var bbox = canvas.getBoundingClientRect();
+
+         return {
+             x:x - bbox.left - (bbox.width - canvas.width) / 2,
+             y:y - bbox.top - (bbox.height - canvas.height) / 2
+         };
+
+     /*    x=x - bbox.left - (bbox.width - canvas.width) / 2,
+         y=y - bbox.top - (bbox.height - canvas.height) / 2
+         document.getElementById("msg").innerHTML="bbox.top="+bbox.top +"  bbox.height="+bbox.height+"  canvas.width="+canvas.height;
+         document.getElementById("msg").innerHTML=x +"------------"+ y;
+*/
+     }
+
+ }
+</script>
+
+</body>
+</html>

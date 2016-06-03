@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+<style> 
+div
+{
+width:100px;
+height:100px;
+background:red;
+animation:myfirst 5s;
+-moz-animation:myfirst 5s ease infinite alternate; /* Firefox */
+-webkit-animation:myfirst 5s ease infinite alternate; /* Safari and Chrome */
+-o-animation:myfirst 5s ease infinite alternate; /* Opera */
+}
+
+@keyframes myfirst
+{
+from {background:red; transform:translate(0px,0px);}
+to {background:yellow; transform:translate(200px,0px);}
+}
+
+@-moz-keyframes myfirst /* Firefox */
+{
+from {background:red;}
+to {background:yellow;}
+}
+
+@-webkit-keyframes myfirst /* Safari and Chrome */
+{
+from {background:red; -webkit-transform:translate(0px,0px);}
+to {background:yellow; -webkit-transform:translate(200px,0px);}
+}
+
+@-o-keyframes myfirst /* Opera */
+{
+from {background:red;}
+to {background:yellow;}
+}
+</style>
+</head>
+<body>
+
+<div></div>
+
+<p><b>注释：</b>本例在 Internet Explorer 中无效。</p>
+
+</body>
+</html>

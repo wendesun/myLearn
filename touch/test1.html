@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title></title>
+    <style>
+
+
+        #play {
+            padding: 10px;
+            height: 480px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            position: relative;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        #playarea {
+            height: 100%;
+        }
+
+        #play #target{
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            cursor: pointer;
+            width: 100%;
+            /* border: 1px solid #ddd;
+             -webkit-border-radius: 100px;
+             -webkit-box-shadow: 2px 2px 5px #bbb;
+             -webkit-transition: opacity .5s;*/
+            -webkit-touch-callout:none;
+            opacity: 0;
+        }
+
+
+        #play #target.show{
+            opacity: 1;
+        }
+
+
+    </style>
+</head>
+<body>
+<div id="play">
+    <div id="map" style="overflow: hidden;"><img id="target" draggable="false" style="-webkit-transition: all 0.05s ease; transition: all 0.05s ease;" src="images/lineall.png" alt=""  class="show"/></div>
+
+</div>
+
+<script src="js/touch-0.2.14.min.js"></script>
+<script>
+
+
+    var target = document.getElementById("target");
+    touch.on('#target', 'touchstart', function(ev){
+        ev.preventDefault();
+    });
+
+    var initialScale = 1;
+    var currentScale=1;
+    var dx, dy;
+    var offx=0,offy=0;
+
+    touch.on('#target', 'pinchout', function(ev){
+        currentScale = ev.scale - 1;
+        currentScale = initialScale + currentScale;
+        currentScale = currentScale > 30 ? 30 : currentScale;
+        this.style.webkitTransform = "scale(" + currentScale + ") translate3d(" + offx + "," + offy + ",0)";
+    });
+    touch.on('#target', 'pinchin', function(ev){
+        currentScale = ev.scale - 2;
+        currentScale = initialScale + currentScale;
+        currentScale = currentScale < 1 ? 1 : currentScale;
+        this.style.webkitTransform = "scale(" + currentScale + ") translate3d(" + offx + "," + offy + ",0)";
+    });
+    touch.on('#target', 'pinchend', function(ev){
+        initialScale = currentScale;
+        console.log("当前缩放比例为:" + currentScale + ".");
+    });
+
+
+    touch.on('#target', 'drag', function(ev){
+        dx = dx || 0;
+        dy = dy || 0;
+        var width=document.getElementById("target").width;
+        var height=document.getElementById("target").height;
+        offx = dx + ev.x + "px";
+        offy = dy + ev.y + "px";
+        console.log("当前x值为:" + offx + ", 当前y值为:" + offx );
+        this.style.webkitTransform = "scale(" + currentScale + ") translate3d(" + offx + "," + offy + ",0)";
+    });
+
+
+    touch.on('#target', 'dragend', function(ev){
+        dx += ev.x;
+        dy += ev.y;
+    });
+
+
+</script>
+</body>
+</html>

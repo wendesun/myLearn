@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        html{ overflow: hidden;}
+        .userinfoTip{ border: 1px solid #86b02c;  position: fixed; min-width: 248px; text-align: left; background-color: #fff; z-index: 99;
+        }
+        .arrows-top{ padding: 14px 17px; position: relative; }
+        .arrows-top:before{
+            content: '';
+            position: absolute;
+            left:50%;
+            margin-left: -10px;
+            top: -5px;
+            transform: translateY(-50%);
+            -webkit-transform: translateY(-50%);
+            border-width:0px 10px 10px 10px; border-style:solid; border-color: transparent  transparent #86b02c transparent;
+        }
+
+        .arrows-top:after{
+            content: '';
+            position: absolute;
+            left:50%;
+            margin-left: -10px;
+            top:-4px;
+            transform: translateY(-50%);
+            -webkit-transform: translateY(-50%);
+            border-width:0px 10px 10px 10px; border-style:solid; border-color: transparent transparent #fff transparent;
+        }
+        .hide{ display: none}
+    </style>
+    <script src="../js/jquery-1.11.3.min.js"></script>
+    <script>
+    $(function(){
+        function moveTip(id,defaultTop,defaultLeft){
+            var defaultTop=defaultTop || 25; //头部的高度
+            var defaultLeft=defaultLeft || 0; //左侧菜单的宽度
+            //var width=document.body.offsetWidth || document.documentElement.offsetWidth;
+            //var height=document.body.offsetHeight || document.documentElement.offsetHeight;
+
+            $(id).on("mouseover", function (e){
+//                var temp = $("#right").scrollTop();
+                var w=parseInt($(this).next("div").outerWidth("true"))/2;
+                $(this).next("div").css({
+                    "top": (e.pageY+defaultTop)+"px",
+                    "left":(e.pageX-defaultLeft)-w+"px"
+                }).removeClass("hide");
+            }).on("mouseout", function (){
+                $(this).next("div").addClass("hide");
+            }).on('mousemove',function(e){
+//                var temp = $("#right").scrollTop();
+                var w=parseInt($(this).next("div.userinfoTip").outerWidth())/2;
+                console.log( e.clientY+"==============="+e.clientX);
+                $(this).next("div").css({
+                    "top": (e.pageY+defaultTop)+"px",
+                    "left":(e.pageX -w)+"px"
+                }).removeClass("hide");
+            });
+        }
+        moveTip("a[data-info=more]");
+
+    });
+    </script>
+</head>
+<body>
+<div style="width: 500px; height: 200px; left: 400px; top: 200px; border: 1px solid #ccc; position: absolute; z-index: 1; text-align: center; padding: 50px; overflow: auto;">
+    <div style="width: 500px; height: 180px; border: 1px solid #ccc;  text-align: center">
+        <a href="#" class="color-blue cursor-default" data-info="more">查看详情</a>
+        <div class="userinfoTip hide">
+            <div class="arrows-top">
+                <p>公司联系人：<span name="company_contact"></span></p>
+
+                <p>公司电话：<span name="company_tel"></span></p>
+
+                <p>公司名称：<span name="company_title"></span></p>
+
+                <p>公司地址：<span name="company_address"></span></p>
+
+                <p>员工数量：<span name="company_workers"></span></p>
+
+                <p>IT设备数量：<span name="company_devices"></span></p>
+
+                <p>预估月服务需求次数：<span name="require_services"></span></p>
+
+                <p class="hide" name="no_msg">暂无信息</p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

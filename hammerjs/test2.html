@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        function getxy(e){
+            var a=new Array()
+            var t=e.offsetTop;
+            var l=e.offsetLeft;
+            var w=e.offsetWidth;
+            var h=e.offsetHeight;
+            while(e=e.offsetParent){
+                t+=e.offsetTop;
+                l+=e.offsetLeft;
+            }
+            a[0]=w;a[1]=h;
+            a[2]=l;a[3]=t;
+            return a;
+        }
+    </script>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="assets/style.css">
+    <title>Hammer.js</title>
+
+    <style>
+        *, *:after, *:before {
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            min-height: 100%;
+            background: #eee;
+            font: 13px/1.5em 'Open Sans', Helvetica, Arial, sans-serif;
+        }
+
+        a {
+            color: #4986e7;
+        }
+
+        .bg1, .green { background: #42d692; }
+        .bg2, .blue { background: #4986e7; }
+        .bg3, .red { background: #d06b64; }
+        .bg4, .purple { background: #cd74e6; }
+        .bg5, .azure { background: #9fe1e7; }
+
+        body {
+            margin: 20px;
+        }
+
+        pre {
+            background: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .clear { clear: both; }
+
+
+        html, body {
+            overflow: hidden;
+            margin: 0;
+        }
+
+        body {
+            -webkit-perspective: 500;
+            -moz-perspective: 500;
+            perspective: 500;
+        }
+
+        .animate {
+            -webkit-transition: all .3s;
+            -moz-transition: all .3s;
+            transition: all .3s;
+        }
+
+        #hit {
+            padding: 10px;
+        }
+
+        #log {
+            position: absolute;
+            padding: 10px;
+        }
+
+        .bg2{
+            width:15em; height:40em; margin:0 auto;
+            /*background-image:url(1.jpg);*/
+            position:fixed;
+            z-index:-2;
+            background-repeat:no-repeat;
+        }
+    </style>
+</head>
+<body>
+<div class="bg2" id="bg2">
+
+</div>
+
+<script src="hammer.js"></script>
+<script>
+    var reqAnimationFrame = (function () {
+        return window[Hammer.prefixed(window, 'requestAnimationFrame')] || function (callback) {
+                    window.setTimeout(callback, 1000 / 60);
+                };
+    })();
+
+
+    var bg = document.getElementById("bg2");
+    var xy = getxy(bg);
+    var bgP = {
+        x:0,y:0,dx:0,dy:0,
+        s:1,ls:1,bdw:xy[0],bdh:xy[1]
+    };
+
+
+    var mc = new Hammer.Manager(bg);
+
+    function imgLoaded(){
+        bgP.bgw = this.width;
+        bgP.bgh = this.height;
+
+        if(bgP.bgw / bgP.bgh > bgP.bdw / bgP.bdh)
+            bgP.useW = false;
+        else
+            bgP.useW = true;
+
+        this.style.display = 'none';
+
+        bg.style.backgroundImage = 'url('+this.src+')';
+        bg.style.backgroundSize = bgP.useW? (bgP.bgw+'px auto') : ('auto '+bgP.bgh+'px');
+
+        mc.add(new Hammer.Pan({ threshold: 0, pointers: 0 }));
+
+        mc.add(new Hammer.Rotate({ threshold: 0 })).recognizeWith(mc.get('pan'));
+        mc.add(new Hammer.Pinch({ threshold: 0 })).recognizeWith([mc.get('pan'), mc.get('rotate')]);
+
+        mc.on("panstart panmove", onPan);
+        //mc.on("rotatestart rotatemove", onRotate);
+        mc.on("pinchstart pinchmove", onPinch);
+
+        mc.on("hammer.input", function(ev) {
+            if(ev.isFinal) {
+                bgP.dx = 0;
+                bgP.dy = 0;
+                bgP.ls = 1;
+            }
+        });
+    }
+
+    function onPan(ev) {
+        bgP.x += ev.deltaX - bgP.dx;
+        bgP.y += ev.deltaY - bgP.dy;
+
+        console.log('x='+(ev.deltaX - bgP.dx)+', y='+(ev.deltaY - bgP.dy));
+
+        bgP.dx = ev.deltaX;
+        bgP.dy = ev.deltaY;
+
+        if(bgP.x>0) bgP.x = 0;
+        if(bgP.y>0) bgP.y = 0;
+
+        if(bgP.x+bgP.bgw*bgP.s<bgP.bdw)
+            bgP.x = bgP.bdw - bgP.bgw*bgP.s;
+
+        if(bgP.y+bgP.bgh*bgP.s<bgP.bdh)
+            bgP.y = bgP.bdh - bgP.bgh*bgP.s;
+
+        var pos = bgP.x+'px '+bgP.y+'px';
+        bg.style.backgroundPosition = pos;
+    }
+
+    var initScale = 1;
+    function onPinch(ev) {
+        if(ev.type == 'pinchstart') {
+            initScale = transform.scale || 1;
+        }
+        var add = ev.scale - bgP.ls;
+        bgP.s += add;
+        bgP.ls = ev.scale;
+
+        if(bgP.useW){
+            var w = (bgP.bgw*bgP.s);
+            if(w<bgP.bdw)
+            {
+                bgP.s = bgP.bdw/bgP.bgw;
+                w = (bgP.bgw*bgP.s);
+            }
+            bg.style.backgroundSize = w +'px auto';
+        }else{
+            var h = (bgP.bgh*bgP.s);
+            if(h<bgP.bdh)
+            {
+                bgP.s = bgP.bdh/bgP.bgh;
+                h = (bgP.bgh*bgP.s);
+            }
+            bg.style.backgroundSize = 'auto '+h +'px';
+        }
+    }
+
+    function bgStart(src){
+        var img = document.createElement('img');
+        img.src = src;
+        img.style.opacity = '0.01';
+        img.onload = imgLoaded;
+    }
+    bgStart('1.jpg');
+</script>
+
+</body>
+</html>

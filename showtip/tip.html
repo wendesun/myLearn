@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{ padding: 0; margin: 0;}
+        body {
+            font-size: 12px;
+            background-color: #FFFFFF;
+            color: #000;
+            line-height: 1.5;
+            font-family: "\5FAE\8F6F\96C5\9ED1", 'helvetica neue', tahoma, 'hiragino sans gb', stheiti, 'wenquanyi micro hei', \5B8B\4F53, sans-serif;
+        }
+        .userinfoTip {
+            border: 1px solid #86b02c;
+            position: fixed;
+            min-width: 248px;
+            max-width: 350px;
+            text-align: left;
+            background-color: #fff;
+            z-index: 9999;
+        }
+
+        .tipBox {
+            padding: 14px 17px;
+            position: relative;
+        }
+
+        .tipBox.arrows-top:before {
+            content: '\20';
+            position: absolute;
+            left: 50%;
+            margin-left: -10px;
+            top: -5px;
+            transform: translateY(-50%);
+            -webkit-transform: translateY(-50%);
+            border-width: 0px 10px 10px 10px;
+            border-style: solid;
+            border-color: transparent transparent #86b02c transparent;
+        }
+        .tipBox.arrows-top:after {
+            content: '\20';
+            position: absolute;
+            left: 50%;
+            margin-left: -10px;
+            top: -4px;
+            transform: translateY(-50%);
+            -webkit-transform: translateY(-50%);
+            border-width: 0px 10px 10px 10px;
+            border-style: solid;
+            border-color: transparent transparent #fff transparent;
+        }
+
+        .tipBox.arrows-bottom:before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            margin-left: -10px;
+            bottom: -15px;
+            transform: translateY(-50%);
+            -webkit-transform: translateY(-50%);
+            border-width: 10px 10px 0 10px;
+            border-style: solid;
+            border-color: #86b02c transparent transparent transparent;
+        }
+
+        .tipBox.arrows-bottom:after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            margin-left: -10px;
+            bottom: -13px;
+            transform: translateY(-50%);
+            -webkit-transform: translateY(-50%);
+            border-width: 10px 10px 0 10px;
+            border-style: solid;
+            border-color: #fff transparent transparent transparent;
+        }
+        .tipBox.arrows-left:before {
+            content: '\20';
+            position: absolute;
+            left: -10px;
+            margin-top: -10px;
+            top: 50%;
+            border-width: 10px 10px 10px 0px;
+            border-style: solid;
+            border-color: transparent #86b02c transparent  transparent;
+        }
+        .tipBox.arrows-left:after {
+            content: '\20';
+            position: absolute;
+            left: -8px;
+            margin-top: -10px;
+            top: 50%;
+            border-width: 10px 10px 10px 0px;
+            border-style: solid;
+            border-color: transparent  #fff transparent transparent;
+        }
+        .hide{ display: none}
+        .nowrap{ white-space: nowrap; max-width: none;}
+    </style>
+</head>
+<body>
+<div style="margin: 50px 200px; border: 1px solid #ccc;  ">
+    <a class="msgTip" data-info="more"  data-direction="right">aaa</a>
+    <div class="userinfoTip nowrap hide font12">
+        <div class="tipBox arrows-left line-height25">
+            <p>工程师总数：普通工程师、护航工程师和供应商工程师的总数（包括待审核、已通过、已拒绝的工程师）</p>
+            <p>普通工程师总数：除护航工程师、供应商工程师以外的其他工程师的总数</p>
+            <p>护航工程师总数：护航工程师的总数</p>
+            <p>供应商工程师总数：供应商工程师的总数</p>
+            <p>新注册数量：上一个自然日（00:00:00-23:59:59）新注册的所有的总数</p>
+            <p>新注册普通工程师：上一个自然日（00:00:00-23:59:59）新注册的普通工程师</p>
+            <p>新注册供应商工程师：上一个自然日（00:00:00-23:59:59）新注册的供应商工程师</p>
+        </div>
+    </div>
+</div>
+<div style="margin: 100px 200px; border: 1px solid #ccc;">
+    <span class="msgTip" data-info="more">bbb</span>
+    <div class="userinfoTip nowrap hide font12">
+        <div class="tipBox arrows-top line-height25">
+            <p>工程师总数：普通工程师、护航工程师和供应商工程师的总数（包括待审核、已通过、已拒绝的工程师）</p>
+            <p>普通工程师总数：除护航工程师、供应商工程师以外的其他工程师的总数</p>
+            <p>护航工程师总数：护航工程师的总数</p>
+            <p>供应商工程师总数：供应商工程师的总数</p>
+            <p>新注册数量：上一个自然日（00:00:00-23:59:59）新注册的所有的总数</p>
+            <p>新注册普通工程师：上一个自然日（00:00:00-23:59:59）新注册的普通工程师</p>
+            <p>新注册供应商工程师：上一个自然日（00:00:00-23:59:59）新注册的供应商工程师</p>
+        </div>
+    </div>
+</div>
+<script src="../js/jquery-1.11.3.min.js"></script>
+<script src="tip.js"></script>
+<script>
+    $(function(){
+        $.fn.showtip("a[data-info='more']");
+//        $("span[data-info='more']",this).showtip();
+        $.fn.moreInfoTip("","span[data-info='more']");
+    });
+</script>
+</body>
+</html>

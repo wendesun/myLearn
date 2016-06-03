@@ -1,0 +1,141 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+
+#mybtn{ 
+    width:80px; 
+    height:80px; 
+    -webkit-border-radius:40px; 
+    background:-webkit-linear-gradient(left,#9be32b,#F00); 
+    color:#fff; 
+    font-weight:bold; 
+    font-size:18px; 
+    text-align:center; 
+    line-height:80px; 
+    font-family:Arial, Helvetica, sans-serif; 
+    border:0; 
+    cursor:pointer; 
+	 -webkit-animation-name:ball; 
+    -webkit-animation-iteration-count:1; 
+    -webkit-animation-timing-function:linear; 
+    -webkit-animation-duration:500ms; 
+    -webkit-animation-fill-mode:forwards; 
+	-webkit-animation-iteration-count:infinite
+}
+
+.mybtngo{ 
+   
+}
+@-webkit-keyframes ball{ 
+    from{ 
+        width:80px; 
+        height:80px; 
+        text-align:center; 
+        line-height:80px; 
+        -webkit-border-radius:40px; 
+        -webkit-transform:rotate(-360deg); 
+    } 
+    to{ 
+        width:160px; 
+        height:160px; 
+        text-align:center; 
+        line-height:160px; 
+        -webkit-border-radius:80px; 
+        -webkit-transform:rotate(0deg); 
+        font-size:36px; 
+    } 
+}
+
+.mybtnout{ 
+    -webkit-animation-name:ballout; 
+    -webkit-animation-iteration-count:1; 
+    -webkit-animation-timing-function:linear; 
+    -webkit-animation-duration:500ms; 
+    -webkit-animation-fill-mode:forwards; 
+}
+@-webkit-keyframes ballout{ 
+    0%{ 
+		width:160px; 
+        height:160px; 
+        text-align:center; 
+        line-height:160px; 
+        -webkit-border-radius:80px; 
+        -webkit-transform:rotate(0deg); 
+        font-size:36px; 
+      
+    } 
+    100%{ 
+         width:80px; 
+        height:80px; 
+        text-align:center; 
+        line-height:80px; 
+        -webkit-border-radius:40px; 
+        -webkit-transform:rotate(-360deg);  
+    } 
+}
+
+#mybtdiv{ background-color:#06F;
+    width:160px; 
+    height:160px; 
+    -webkit-transform-origin:right bottom;/*定义旋转中心点*/ 
+	background:-webkit-linear-gradient(top,#9be32b,#80bb25); 
+    position:absolute; 
+    left:0px; 
+    top:0px; 
+    }
+	
+.mybtdivgo{ 
+    -webkit-animation-name:inbtn; 
+    -webkit-animation-iteration-count:1; 
+    -webkit-animation-timing-function:linear; 
+    -webkit-animation-duration:500ms; 
+    -webkit-animation-fill-mode:forwards; 
+}	
+@-webkit-keyframes inbtn{ 
+    0%{ 
+        -webkit-transform:rotate(0deg); 
+        width:160px; 
+        height:160px; 
+    } 
+    100%{ 
+        -webkit-transform:rotate(-360deg); 
+        width:320px; 
+        height:320px; 
+        left:-40px; 
+        top:-40px; 
+    } 
+}
+
+</style>
+<script src="jquery-1.11.3.min.js" type="text/javascript"></script>
+<script type="text/javascript"> 
+var a = 0; 
+$(function(){ 
+    $("#mybtn").click(function(){ 
+        if(a == 0){ 
+            //$("#mybtdiv").removeClass("mybtdivout"); 
+            $("#mybtn").removeClass("mybtnout");        
+           // $("#mybtdiv").addClass("mybtdivgo"); 
+             $("#mybtn").addClass("mybtngo"); 
+            a=1;     
+        }else if(a==1){ 
+            //$("#mybtdiv").removeClass("mybtdivgo"); 
+             $("#mybtn").removeClass("mybtngo"); 
+            //$("#mybtdiv").addClass("mybtdivout"); 
+            $("#mybtn").addClass("mybtnout"); 
+            a=0; 
+        } 
+}) 
+} 
+) 
+</script>
+</head>
+
+<body>
+<div id="mybtn">aaaaaa</div>
+
+</body>
+</html>

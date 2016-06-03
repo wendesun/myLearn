@@ -1,0 +1,147 @@
+//变量
+@color: #FF00CC;
+
+p{
+  color: @color;
+}
+h2 {
+  color: @color;
+}
+//用变量名定义为变量
+@fnord: "I am fnord.";
+@var: 'fnord';
+ul li:after{content:@@var;}
+
+//混合(分不带参数混合 和 带参数混合)
+.rounded-corners (@radius: 5px) {
+  border-radius: @radius;
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border:@radius/5 solid @color ;
+}
+.border1 {
+  .rounded-corners;
+}
+.border2 {
+  .rounded-corners(10px);
+}
+
+.padding(@top:10px,@right:10px,@bottom:10px,@left:10px){
+  padding: @arguments;
+}
+
+.box-shadow(@x: 0, @y: 0, @blur: 1px, @color: #000){
+  box-shadow: @arguments;
+}
+
+.box{ width:100%; min-height:200px; margin-bottom:20px;}
+.box.padding.box-shadow{ .padding();.box-shadow(2px, 5px);}
+
+//模式匹配和导引表达式
+/*.mixin (dark, @color) {
+  color: darken(@color, 10%);
+}
+.mixin (light, @color) {
+  color: lighten(@color, 10%);
+}
+.mixin (@_, @color) {
+  display: block;
+}
+
+@switch: dark;
+.box {
+  .mixin(@switch, #888);
+}*/
+
+
+.mixin (@a) when (lightness(@a) >= 50%) {
+  background-color: black;
+}
+.mixin (@a) when (lightness(@a) < 50%) {
+  background-color: white;
+}
+.mixin (@a) {
+  color: @a;
+}
+.box.mixin { .mixin(#ddd) }
+//.box { .mixin(#555) }
+
+
+//嵌套
+.box{
+  h1{font-size: 26px; font-weight: bold;}
+  p{ font-size: 12px;
+    a{ text-decoration: none;
+      &:hover{ border-width: 1px;}
+    }
+  }
+}
+
+//运算
+@base: 5%;
+@filler: @base * 2;
+@other: @base + @filler;
+
+.box .classa{
+  color: #ffff00 / 1;
+}
+
+//Color 函数
+@c-color: #f04615;
+.c-color-class {
+  color: saturate(@c-color, 5%);
+  background-color: lighten(spin(@c-color, 8), 25%);
+}
+
+//Math 函数
+
+//命名空间
+#bundle {
+  .button () {
+    display: block;
+    border: 1px solid black;
+    background-color: grey;
+    &:hover { background-color: white }
+  }
+  .tab { color: #0000ee; }
+  .citation { background-color: #00cccc;  }
+}
+
+.mmkj{
+  #bundle > .citation;
+}
+
+//作用域
+@var1: red;
+
+#page {
+  @var1: white;
+  #header {
+    color: @var1; // white
+  }
+}
+
+#footer {
+  color: @var1; // red
+}
+
+//字符串插值
+@base-url: "http://www.xiaoxiongbizhi.com";
+.pic-bg{
+  background: url("@{base-url}/wallpapers/__85/y/w/ywzwdjof0.jpg") no-repeat center;
+}
+
+
+//高级参数用法与 @rest 变量
+
+.myborder(@radius: 5px,@rest...){
+  border-radius: @radius;
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border:@rest solid #00cccc;
+}
+
+.testmyborder{
+  .myborder(5px,10px);
+}
+

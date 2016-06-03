@@ -1,0 +1,64 @@
+//变量
+@color: #ff0033;
+
+p{
+  color: @color;
+}
+h2 {
+  color: @color;
+}
+//用变量名定义为变量
+@fnord: "I am fnord.";
+@var: 'fnord';
+ul li:after{content:@@var;}
+
+//混合(分不带参数混合 和 带参数混合)
+.rounded-corners (@radius: 5px) {
+  border-radius: @radius;
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border:@radius/5 solid @color ;
+}
+.border1 {
+  .rounded-corners;
+}
+.border2 {
+  .rounded-corners(10px);
+}
+
+.padding(@top:10px,@right:10px,@bottom:10px,@left:10px){
+  padding: @arguments;
+}
+
+.box-shadow(@x: 0, @y: 0, @blur: 1px, @color: #000){
+  box-shadow: @arguments;
+}
+
+.box{ width:100%; min-height:200px; margin-bottom:20px;}
+.box.padding.box-shadow{ .padding();.box-shadow(2px, 5px);}
+
+
+// LESS
+
+@the-border: 1px;
+@base-color: #111;
+@red:        #842210;
+
+#header {
+  color: @base-color * 3;
+  border-left: @the-border;
+  border-right: @the-border * 2;
+}
+#footer {
+  color: @base-color + #003300;
+  border-color: desaturate(@red, 10%);
+}
+
+
+
+
+
+
+
+
+

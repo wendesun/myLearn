@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../js/jquery-1.11.3.min.js"></script>
+    <script>
+     /*   function getEvent() //同时兼容ie和ff的写法
+        {
+            if(document.all)  return window.event;
+            func=getEvent.caller;
+            while(func!=null){
+                var arg0=func.arguments[0];
+                if(arg0)
+                {
+                    if((arg0.constructor==Event || arg0.constructor ==MouseEvent) || (typeof(arg0)=="object" && arg0.preventDefault && arg0.stopPropagation))
+                    {
+                        return arg0;
+                    }
+                }
+                func=func.caller;
+            }
+            return null;
+        }
+
+        function test() {
+            var event=getEvent();
+            if (navigator.appName=='Microsoft Internet Explorer') {
+                alert(event.x);
+            }else if (navigator.appName=='Netscape') {
+                alert(event.pageX);
+            }
+
+        }
+        test();*/
+
+       /* function a(event){
+            var event = window.event?event.srcElement:event.target;
+            alert(event.pageY);
+        }*/
+
+     $(function() {
+         $("a").hover(function(event) {
+             var event=event || window.event || arguments.callee.caller.arguments[0];
+             alert("Current mouse position:" + event.pageX + "," + event.pageY);
+             //获取鼠标当前相对于页面的坐标
+             return false; //阻止链接跳转
+         });
+     })
+    </script>
+</head>
+<body>
+
+<a href="javascript:;">cccccccc</a>
+</body>
+</html>

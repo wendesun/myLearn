@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>box-align 和 box-pack 属性，对 div 框的子元素进行居中</title>
+<style type="text/css">
+body, html {
+	margin:0;
+	padding:0;
+	height:100%;
+	
+	
+}
+/*
+* 目前box-pack 属性 浏览器都是不支持的。
+*
+*
+*
+*/
+#box { border:1px solid red;
+	width:500px;
+	height:600px;
+	background:url(images/sky.jpg) no-repeat 0 0;
+	background-size:100% 100%;
+	/* 开启盒布局 */
+	display:-webkit-box;
+	display:-moz-box;
+	display:box;	
+	/* 水平居中 */
+	-webkit-box-pack:center;
+	-moz-box-pack:center;
+	box-pack:center;
+	/* 垂直居中 */
+	-webkit-box-align:center;
+	-moz-box-align:center;
+	box-align:center;
+}
+#box div {
+	opacity:0.8;
+}
+</style>
+<body>
+<div id="box">
+  <div><img src="icon1.png" /></div>
+</div>
+</body>
+</html>

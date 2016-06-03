@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        #progress{
+            width: 370px;
+            height: 16px;
+            margin: 50px 0 0 100px;
+            overflow: hidden;
+        }
+        #progress span {
+            display: inline-block;
+            width: 50%;
+            height: 100%; background:url(images/a1.jpg)  left;
+            text-align: center;
+            color:#fff;
+            -webkit-animation:load 3s ease-in;
+        }
+        @-webkit-keyframes load{
+            0%{
+                width: 0%;
+            }
+            100%{
+                width:100%;
+            }
+        }
+		
+    </style>
+    <script src="jquery-1.11.3.min.js"></script>
+    <script type="text/javascript">
+	$(function(){
+		$("#test1").click(function(){
+			$("#progress").children('span').css('width','75%');	
+		});
+		
+	});
+    </script>
+</head>
+<body>
+
+<div id="progress">
+    <span></span>
+</div>
+<input  type="button" value="75%" id="test1">
+</body>
+</html>

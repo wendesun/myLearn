@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+
+    <title>Customizing options</title>
+
+    <!-- jQuery Include -->
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <!-- Mobiscroll JS and CSS Includes -->
+    <link rel="stylesheet" href="css/mobiscroll.custom-2.17.1.min.css" type="text/css" />
+    <script src="js/mobiscroll.custom-2.17.1.min.js"></script>
+
+    <style type="text/css">
+        
+        /* Demo Page styling, you can ignore this in your implementation */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        button {
+            display: inline-block;
+            text-decoration: none;
+            padding: 0.8em 2.6em;
+            margin: 20px 10px 0 0;
+            outline: 0;
+            border: 0;
+            overflow: visible;
+            cursor: pointer;
+            color: #fff;
+            background: #5185a8;
+            font-family: Arial, sans-serif, verdana;
+            font-size: 14px;
+            font-weight: 100;
+            -webkit-transition: background 0.3s ease-out;
+            -moz-transition: background 0.3s ease-out;
+            -o-transition: background 0.3s ease-out;
+            transition: background 0.3s ease-out;
+        }
+        
+        button:hover {
+            background: #34566d;
+        }
+
+        input {
+            width: 100%;
+            margin: 0 0 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 0;
+            background: #fff;
+            font-family: Arial, sans-serif,verdana;
+            text-shadow: none;
+            color: #000;
+            font-size: 15px;
+            -webkit-appearance: none;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        .demo-iframe { 
+            padding: 10px 10px 10px 10px; 
+            text-shadow: none; 
+        }
+
+        /* Demo specific styling */
+        .md-cc-type {
+            width: 40px;
+            height: 23px;
+            float: right;
+            background: url(/Content/img/demos/payment_icons_sprite.png);
+        }
+        
+        .md-cc-type-maestro {
+            background-position: left -360px;
+        }
+        
+        .md-cc-type-mastercard {
+            background-position: left -60px;
+        }
+        
+        .md-cc-type-visa {
+            background-position: left -30px;
+        }
+        
+        .md-cc-type-discover {
+            background-position: left -90px;
+        }
+        
+        .demo-credit.demo-iframe input {
+            width: 100%;
+            padding: 11px;
+            margin-bottom: 10px;
+            clear: both;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+        }
+        
+        .demo-credit label {
+            line-height: 28px;
+            float: left;
+        }
+    </style>
+
+    <script type="text/javascript">
+        $(function () {
+        
+            var now = new Date();
+        
+            // Mobiscroll Date & Time initialization
+            $('#demo').mobiscroll().date({
+                theme: 'mobiscroll',           // Specify theme like: theme: 'ios' or omit setting to use default
+                lang: 'zh',                    // Specify language like: lang: 'pl' or omit setting to use default
+                display: 'modal',             // Specify display mode like: display: 'bottom' or omit setting to use default
+                dateOrder: 'yymm',             // More info about dateOrder: http://docs.mobiscroll.com/2-17-1/datetime#!localization-dateOrder
+                dateFormat: 'yy/mm',           // More info about dateFormat: http://docs.mobiscroll.com/2-17-1/datetime#!localization-dateFormat
+                startYear: 1950,  // More info about startYear: http://docs.mobiscroll.com/2-17-1/datetime#!opt-startYear
+                endYear: now.getFullYear() + 10,
+                minWidth: 100,                  // More info about minWidth: http://docs.mobiscroll.com/2-17-1/datetime#!opt-minWidth
+                showNow: true,
+                headerText: function (valueText) { //自定义弹出框头部格式
+                    array = valueText.split('/');
+                    return array[0] + "年" + array[1] + "月";
+                }
+            });
+        
+        });
+    </script>
+</head>
+<body class="demo-comp-datetime demo-display-bottom demo-theme-mobiscroll">
+    <div class="demo-iframe demo-credit">
+        <!-- Date & Time demo markup -->
+        
+        <label for="md_cc_number">Card Number</label>
+        <div class="md-cc-type md-cc-type-maestro"></div>
+        <div class="md-cc-type md-cc-type-mastercard"></div>
+        <div class="md-cc-type md-cc-type-visa"></div>
+        <div class="md-cc-type md-cc-type-discover"></div>
+        <input id="md_cc_number" placeholder="xxxx xxxx xxxx xxxx" />
+        
+        <div style="width:68%;padding-right:2%;float:left;">
+            <label for="demo">Expiration</label>
+            <input id="demo" placeholder="mm/yyyy" />
+        </div>
+        
+        <div style="width:30%;float:left;">
+            <label for="md_cc_cvc">CVC Code</label>
+            <input id="md_cc_cvc" placeholder="xxx" />
+        </div>
+        
+        <div style="clear:both;"></div>
+    </div>
+</body>
+</html>

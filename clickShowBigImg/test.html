@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>点击图片弹出浮层</title>
+<style type="text/css">
+.showImg .mskeLayBg { background: #000; width: 100%; height:100%; position: fixed; left: 0px; top: 0px; z-index: 10; opacity: 0.5; filter: alpha(opacity=50); display: none; _display:none!important }
+.showImg .mskelayBox { height: 488px; width: 974px; margin-top: -251px; margin-left: -494px; position: fixed; left: 50%; top: 50%; border: 7px solid #FFF; z-index: 20; background: #FFF; display: none; _display:none!important }
+.showImg .mskeClaose { position: absolute; top: -17px; right: -17px; cursor: pointer; }
+</style>
+<script src="images/jquery-1.11.3.min.js"></script>
+<script>
+$(function(){
+	//图库弹出层
+	var html='<div class="showImg"><div class="mskeLayBg"></div><div class="mskelayBox"><div class="mske_html"><img class="img" src="" width="974" height="488" /></div><img class="mskeClaose" src="images/mke_close.png" width="27" height="27" /></div></div>';
+	
+	$("body").on("click",".clickBigImg",function(){
+		//alert($(".showImg").length);
+		if($(".showImg").length === 0){
+			$("body").append(html);
+		}
+		$(".mske_html img").attr("src",$(this).attr("src"));$(".mskeLayBg").show();$(".mskelayBox").fadeIn(300)
+	});
+	$("body").on("click",".mskeClaose",function(){$(".mskeLayBg,.mskelayBox").hide()});
+});
+</script>
+</head>
+
+<body>
+
+
+<div class="msKeimgBox">
+   <div><img class="clickBigImg" src="images/skeImg.jpg" width="185" height="93" /></div>
+   <div><img class="clickBigImg" src="images/skeImg.jpg" width="185" height="93" /></div>
+   <div><img class="clickBigImg" src="images/skeImg.jpg" width="185" height="93" /></div>
+</div>
+
+</body>
+</html>

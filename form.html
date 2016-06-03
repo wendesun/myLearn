@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+     
+<title>html5表单</title>
+<!--<link href="css/cube.css" type="text/css" rel="stylesheet">-->
+<style type="text/css">
+*{ padding:0; margin:0;}
+body{ font-size:12px; font-family:"微软雅黑";-webkit-user-select: none;/*禁止页面选择复制*/ }
+p{ margin:5px 0; }
+
+/*input[type='text']{ font:inherit; border:1px solid #999; outline:none; padding:2px;}
+input[type='text']:hover,input[type='text']:focus{border:1px solid #ff0033; background-color:#FF0;}*/
+
+
+input[type=text] {
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    outline: none;
+    padding: 3px 0px 3px 3px;
+    margin: 5px 1px 3px 0px;
+    border: 1px solid #ddd;
+}
+  
+input[type=text]:focus{
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    padding: 3px 0px 3px 3px;
+    margin: 5px 1px 3px 0px;
+    outline: none; 
+    border: 1px solid rgba(81, 203, 238, 1);
+}
+
+select{border:1px solid #999; }
+select:hover,select:focus{border:1px solid #ff0033; background-color:#FF0;}
+
+textarea{ border:1px solid #999; }
+textarea:focus{ box-shadow:none; outline:none;}
+
+input[type='url']{ font:inherit; border:1px solid #999; outline:none; padding:2px; appearance:none; }
+
+
+/*input[type="search"]::-webkit-search-cancel-button {-webkit-appearance: none;}*/
+
+/**
+ * 修正 Chrome 中 input [type="number"] 在特定高度和 font-size 时,
+ * 下面一个箭头光标变成「cursor: text」
+ * @demo: http://jsfiddle.net/FFXEc/
+ * 动画演示：http://gtms04.alicdn.com/tps/i4/T18kd8FCtaXXc_FhcF-330-350.gif
+ */
+
+input[type='tel']::-webkit-validation-bubble { border: 1px solid #F7CE39; background: #ff0033; top: 4px; left: 0px; } 
+
+input[type='checkbox'],input[type='radio']{ padding:0; margin:0; appearance:normal;-webkit-appearance:normal; vertical-align:middle; height:24px;}
+label{ vertical-align:middle; *vertical-align: middle;}
+
+input[type='submit'],button{ width:100px; height:50px; background-color:#C69; outline:none; box-shadow:none; border:none; -webkit-box-shadow:none;cursor:pointer;appearance:normal;-webkit-appearance:normal; }
+</style>
+</head>
+
+<body>
+
+<form action="" autocomplete="on">
+<p>请输入网址<input type="text"  /></p>
+<p>到达站点<select>
+<option value="111">1111</option>
+<option value="222">2222</option>
+</select></p>
+<p>文本域<textarea cols="50" rows="5"></textarea></p>
+<p><label>请输入网址</label><input type="url" /></p>
+<p><label>电子邮箱</label><input type="email" /></p>
+<p><label>数字</label><input type="number" name="num" min="5" max="20" step="5"  /></p>
+<p><label>请输入数值</label><input type="range"  min="5" max="20" step="1" value="10" /></p>
+<p><label>请输入日期</label><input type="date" /></p>
+<p><label>请输入月份</label><input type="month" /></p>
+<p><label>请选择年份和周数</label><input type="week" /></p>
+<p><label>请选择或输入时间</label><input type="time" /></p>
+<p><label>请输入搜索关键词</label><input type="search" /></p>
+<p><label>请输入电话号码</label><input type="tel"  /></p>
+<p><label>请选择一种颜色</label><input type="color" /></p>
+<p><label>输入你最喜欢的城市名称</label><input type="text" id="city" list="citylist" /></p>
+<datalist id="citylist" style="display:none">
+	<option value="beijing">BeiJing</option>
+    <option value="QingDao">QingDao</option>
+    <option value="ShangHai">ShangHai</option>
+    <option value="JiangXi">JiangXi</option>
+    <option value="江西">江西</option>
+</datalist>
+<p><label>请选择要上传的多个文件</label><input type="file" multiple/></p>
+<p><label>请输入6位数的邮编</label><input type="text" pattern="[0-9]{6}" placeholder="请输入6位数的邮政编码"/></p>
+<p style="background-color:#C6C"><label>复选框</label><input type="checkbox" name="fruit" value="0"/>苹果<input type="checkbox" name="fruit" value="1"/>雪梨<input type="checkbox" name="fruit" value="2"/>西瓜<input type="checkbox" name="fruit" value="3"/>葡萄</p>
+<p style="background-color:#09F;"><label>单选框</label><input type="radio" name="fruit" value="apple" />苹果<input type="radio" name="fruit" />雪梨<input type="radio" name="fruit" />西瓜<input type="radio" name="fruit" />葡萄</p>
+<p><button type="submit"> 提交</button></p>
+</form>
+
+</body>
+</html>

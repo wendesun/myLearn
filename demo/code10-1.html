@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>北国风光</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style type="text/css" media="screen, projection">
+body {
+	line-height:1;
+	color:#333;
+}
+ol, ul, h1 {
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+a {
+	color: #933;
+	text-decoration: none;
+}
+a:hover {
+	color: #DF3030;
+}
+nav h1 {
+	text-align:center;
+}
+nav h1 img {
+	width:90%;
+}
+nav ul {
+	border-top: 1px solid #999;
+}
+nav li {
+	text-align: center;
+	border-bottom:1px solid #ccc;
+	line-height:60px;
+}
+nav li a {
+	display:block;
+}
+nav li a:hover {
+	background-color:#e4e4e4;
+}
+section {
+	font-size:14px;
+	font-family:"宋体";
+}
+section h2 {
+	font-size:18px;
+	text-align:center;
+	font-family:"黑体";
+	font-weight:lighter;
+}
+section span {
+	padding:0 10px;
+	background-color:#FFF;
+}
+
+section li {
+	text-align:center;
+}
+section li img {
+	width:98%;
+	border-radius:5px;
+}
+section article {
+	border-top: 1px solid #999;
+	margin-top:20px;
+	padding-bottom:20px;
+}
+.clear {
+	clear:both;
+	line-height:5px;
+}
+footer {
+	clear:both;border-top: 1px solid #999;
+	font-size: 12px;
+	text-align: center;
+	padding: 10px 0;
+	font-family:Arial, Helvetica, sans-serif;
+	color:#666;
+}
+.box { width:200px; height:200px; border:1px solid red;}
+ @media (max-width: 600px) {
+.container { display:box; display:-webkit-box; -webkit-box-orient:vertical;}
+}
+ @media (min-width:600px) and (max-width: 800px) {
+.container { display:box; display:-webkit-box; -webkit-box-orient:horizontal;}
+}
+@media (min-width:800px) and (max-width:1000px) {
+.container { display:box; display:-webkit-box; -webkit-box-orient:block-axis;}
+@media (min-width:1000px)and (max-width:1800px) {
+.container { display:box; display:-webkit-box; -webkit-box-orient:horizontal;}
+}
+</style>
+</head>
+<body>
+<div class="container">
+	<div class="box"></div>
+	<div class="box"></div>
+</div>
+</body>
+</html>

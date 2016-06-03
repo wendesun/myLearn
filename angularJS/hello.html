@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="angular.min.js"></script>
+    <script>
+        var helloApp = angular.module("helloApp", []);
+        helloApp.controller("HelloCtrl", function($scope) {
+            $scope.name = "Calvin Hobbes";
+        });
+    </script>
+</head>
+<body ng-app="helloApp">
+    <div ng-controller="HelloCtrl">
+        <input type="text" name="name" ng-model="name"/>
+        <p>{{name}},World</p>
+    </div>
+
+</body>
+</html>

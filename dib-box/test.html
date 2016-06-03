@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        /*
+         *@ Name:       inline-block 组件
+         *@ Author:     一丝
+         *@ Update:     2013-9-29 16:05:04
+         *@ Usage:      清除空隙需在外层容器加上 dib-box，dib 可单独使用
+         */
+        *{ padding: 0; margin: 0;}
+        body{ font-family: "Microsoft YaHei", Arial, Verdana, Helvetica, sans-serif; line-height: 1.5;}
+        .font20{ font-size: 20px;}
+        .dib {
+            display: inline-block;
+            *display: inline;
+            *zoom: 1;
+        }
+        .dib-box {
+            font-size: 0; /* 所有浏览器 */
+            *word-spacing: -1px; /* IE6/7 */
+        }
+        @media (-webkit-min-device-pixel-ratio:0) {
+            .dib-box {
+                letter-spacing: -5px; /* Safari 5- 等不支持 font-size: 0 的浏览器*/
+            }
+        }
+        .dib-box .dib {
+            vertical-align: top;
+            font-size: 14px;
+            letter-spacing: normal;
+            word-spacing: normal;
+            line-height: inherit;
+            padding: 7px;
+        }
+        .div-table .dib-box .dib:first-child{ width: 100px;text-align: right;}
+    </style>
+</head>
+<body>
+    <div class="div-table">
+        <div class="dib-box">
+            <div class="dib"><span class="font20">申请信息</span></div>
+            <div class="dib">
+                <div>姓名：Ffff&emsp;&emsp;<a href="#" class="color-blue">查看详情</a></div>
+                <div>手机号：13100000000</div>
+                <div>提现时间：2016-05-19 <span class="nowrap">16:04</span></div>
+            </div>
+            <div class="dib">好好学习，天天向上</div>
+            <div class="dib">aaaaaaaaa</div>
+        </div>
+        <div class="dib-box">
+            <div class="dib">用户手机号码</div>
+            <div class="dib">
+                <div>姓名：Ffff&emsp;&emsp;<a href="#" class="color-blue">查看详情</a></div>
+                <div>手机号：13100000000</div>
+                <div>提现时间：2016-05-19 <span class="nowrap">16:04</span></div>
+            </div>
+            <div class="dib">
+                <div>姓名：Ffff&emsp;&emsp;<a href="#" class="color-blue">查看详情</a></div>
+                <div>手机号：13100000000</div>
+                <div>提现时间：2016-05-19 <span class="nowrap">16:04</span></div>
+            </div>
+            <div class="dib">bbbbbb</div>
+        </div>
+        <div class="dib-box">
+            <div class="dib"><span class="font20">申请信息</span></div>
+            <div class="dib">
+                <div>姓名：Ffff&emsp;&emsp;<a href="#" class="color-blue">查看详情</a></div>
+                <div>手机号：13100000000</div>
+                <div>提现时间：2016-05-19 <span class="nowrap">16:04</span></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

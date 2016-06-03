@@ -1,0 +1,28 @@
+$fontStack:    Helvetica, sans-serif;
+$primaryColor: #333;
+
+body {
+  font-family: $fontStack;
+  color: $primaryColor;
+}
+
+.message {
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: #333;
+}
+
+.success {
+  @extend .message;
+  border-color: green;
+}
+
+.error {
+  @extend .message;
+  border-color: red;
+}
+
+.warning {
+  @extend .message;
+  border-color: yellow;
+}

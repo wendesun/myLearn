@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        svg{ background-color: #f7f7f7; padding: 0; margin: 0;}
+    </style>
+</head>
+<body>
+<div style="width: 320px; height: 480px;">
+<svg id="svg" width="100%" height=""  xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"></svg>
+</div>
+
+
+
+
+
+<script src="snap.svg-min.js"></script>
+<script>
+    var svg = Snap("#svg");
+
+ /*   var c = svg.paper.path("M100 100L300 100").attr({
+        stroke: "#2682af",
+        strokeWidth: 5
+    }).mousemove(function(){
+        this.attr({stroke: "#e1c42f"});
+    }).mouseout(function(){
+        this.attr({stroke: "#2682af"});
+    }).paper.text(225,30,"2号线").drag();*/
+
+    var c = svg.paper.path("M100 100L300 100").attr({
+        stroke: "#2682af",
+        strokeWidth: 5
+    }).paper.path("M300 100L500 100").attr({
+        stroke: "#f00",
+        strokeWidth: 5
+    }).paper.path("M500 100L700 100").attr({
+        stroke: "#228d72",
+        strokeWidth:5
+    });
+    var c = svg.paper.path("M100 110L300 110").attr({
+        stroke: "#2682af",
+        strokeWidth: 5
+    }).paper.path("M300 110L500 110").attr({
+        stroke: "#f00",
+        strokeWidth: 5
+    }).paper.path("M500 110L700 110").attr({
+        stroke: "#228d72",
+        strokeWidth:5
+    });
+
+
+    var c = svg.paper.path("M700,100 Q800,110 800,200").attr({
+        fill:"none",
+        stroke: "#000",
+        strokeWidth: 5
+    }).paper.path("M800 200L800 300").attr({
+        stroke: "#f00",
+        strokeWidth: 5
+    }).paper.path("M800,300 Q800,390 700 400").attr({
+        fill:"none",
+        stroke: "#228d72",
+        strokeWidth: 5
+    });
+    var c = svg.paper.path("M700,110 Q790,120 790,200").attr({
+        fill:"none",
+        stroke: "#000",
+        strokeWidth: 5
+    }).paper.path("M790 200L790 300").attr({
+        stroke: "#f00",
+        strokeWidth: 5
+    }).paper.path("M790,300 Q790,380 700 390").attr({
+        fill:"none",
+        stroke: "#228d72",
+        strokeWidth: 5
+    });
+
+
+
+
+    var c = svg.paper.path("M700 400L500 400").attr({
+        stroke: "#000",
+        strokeWidth: 5
+    }).paper.path("M500 400L300 400").attr({
+        stroke: "#f00",
+        strokeWidth: 5
+    }).paper.path("M300 400L100 400").attr({
+        stroke: "#228d72",
+        strokeWidth: 5
+    });
+    var c = svg.paper.path("M700 390L500 390").attr({
+        stroke: "#000",
+        strokeWidth: 5
+    }).paper.path("M500 390L300 390").attr({
+        stroke: "#f00",
+        strokeWidth: 5
+    }).paper.path("M300 390L100 390").attr({
+        stroke: "#228d72",
+        strokeWidth: 5
+    });
+
+
+
+
+    var c = svg.paper.path("M100,400 Q10,390 10,300").attr({
+        fill:"none",
+        stroke: "#000",
+        strokeWidth: 5
+    }).paper.path("M10 300L10 200").attr({
+        stroke: "#f00",
+        strokeWidth: 5
+    }).paper.path("M10,200 Q10,110  100,100").attr({
+        fill:"none",
+        stroke: "#228d72",
+        strokeWidth: 5
+    });
+    var c = svg.paper.path("M100,390 Q20,380 20,300").attr({
+        fill:"none",
+        stroke: "#000",
+        strokeWidth: 5
+    }).paper.path("M20 300L20 200").attr({
+        stroke: "#f00",
+        strokeWidth: 5
+    }).paper.path("M20,200 Q20,120  100,110").attr({
+        fill:"none",
+        stroke: "#228d72",
+        strokeWidth: 5
+    });
+
+</script>
+</body>
+</html>

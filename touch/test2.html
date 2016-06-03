@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{padding: 0; margin: 0;}
+        .div1{  padding: 10px;  height: 100px;  margin: 10px; border: 1px solid #ccc;}
+        .div2{  width: 100px; height: 100px; border: 1px solid #ccc; background-color: #003399; display: inline-block;}
+    </style>
+</head>
+<body>
+<div class="div1">
+    <div name="test" class="div2" style=""></div>
+    <div name="test" class="div2" style=""></div>
+    <div name="test" class="div2" style=""></div>
+</div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/touch-0.2.14.min.js"></script>
+<script>
+    touch.on('div[name=test]', 'hold tap doubletap', function(ev){
+        console.log(ev.type);
+    });
+</script>
+</body>
+</html>

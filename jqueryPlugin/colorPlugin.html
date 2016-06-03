@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../js/jquery-1.11.3.min.js"></script>
+    <script>
+        ;(function($){
+            $.fn.extend({
+                color:function(value){
+                    return this.css("color",value);
+                }
+            });
+        })(jQuery);
+
+        $(function(){
+            alert($("div").color());
+        });
+    </script>
+</head>
+<body>
+    <div style="color:blue">blue</div>
+    <div style="color:green">green</div>
+    <div style="color:yellow">yellow</div>
+</body>
+</html>

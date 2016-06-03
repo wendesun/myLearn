@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zn-ch">
+<head>
+<meta name="description" content="">
+<meta name="msapplication-tap-highlight" content="no">
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+	<script src="js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript">
+        function ScrollRed (alignToTop) {
+            var redText = document.getElementById ("redText");
+            redText.scrollIntoView (alignToTop);
+        }
+		$(function(){
+            $(".jqmc").click(function(){
+                alert("aaa");
+                $(this).val("");
+                $(this).removeAttr("disabled").focus();
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+<input type="text" value="故宫故宫故宫故宫故宫故宫故宫故宫" disabled="disabled" class="jqmc"/>
+<button onclick="ScrollRed (true);">Scroll the red text into the top of visible area!</button>
+
+<div style="height:1200px; background-color:#000;"> <span  style="color:red">Red text for scroll test.</span></div>
+<div id="redText" style="height:800px; background-color:#e0d0b0;"> <span  style="color:red">Red text for scroll test.</span></div>
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<canvas id="canvas" width="800" height="800" style="border: 1px solid #ccc;"></canvas>
+<script>
+    window.onload=function(){
+
+        var canvas,ctx;
+        var cx=100,
+            cy=100,
+            r=50,
+            s=1;
+            m=0;
+        (function int(){
+            canvas=document.getElementById('canvas');
+            ctx=canvas.getContext('2d');
+            drawFn();
+        })();
+
+        canvas.onmousedown=function(event){
+            var pos=windowToCanvas(canvas,event.clientX,event.clientY);
+            canvas.onmousemove=function(event){
+                canvas.style.cursor="move";
+                var pos1=windowToCanvas(canvas,event.clientX,event.clientY);
+                var x=pos1.x-pos.x;
+                var y=pos1.y-pos.y;
+                pos=pos1;
+                cx+=x;
+                cy+=y;
+                drawCircle();
+            }
+            canvas.onmouseup=function(){
+                canvas.onmousemove=null;
+                canvas.onmouseup=null;
+                canvas.style.cursor="default";
+            }
+        }
+
+        canvas.onmousewheel=canvas.onwheel=function(event){
+//            var pos=windowToCanvas(canvas,event.clientX,event.clientY);
+            event.wheelDelta=event.wheelDelta?event.wheelDelta:(event.deltaY*(-40));
+            if(event.wheelDelta>0){
+                s*=2;
+                m=100-cx*s;
+                console.log(s+"---------"+m);
+                drawFn();
+            }else{
+                s/=2;
+                m=100-cx*s;
+                console.log(s+"---------"+m);
+                drawFn();
+            }
+        }
+
+        function drawFn(){
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+            ctx.save();
+            drawCircle();
+            drawLine();
+            ctx.restore();
+        }
+
+        function drawCircle(){
+            ctx.lineWidth=3;
+            ctx.strokeStyle="red";
+            ctx.beginPath();
+//            ctx.scale(s,s);
+            ctx.transform(s,0,0,s,m,m);
+            ctx.arc(cx,cy,r,0,2*Math.PI);
+            ctx.stroke();
+        }
+
+        function drawLine(){
+            ctx.lineWidth=5;
+            ctx.strokeStyle="green";
+            ctx.beginPath();
+            ctx.lineTo(100,200);
+            ctx.lineTo(600,200);
+            ctx.stroke();
+        }
+
+        function windowToCanvas(canvas,x,y){
+            var bbox = canvas.getBoundingClientRect();
+            return {
+                x:x - bbox.left - (bbox.width - canvas.width) / 2,
+                y:y - bbox.top - (bbox.height - canvas.height) / 2
+            };
+        }
+
+    }
+</script>
+
+
+</body>
+</html>

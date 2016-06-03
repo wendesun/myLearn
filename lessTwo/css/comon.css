@@ -1,0 +1,53 @@
+html, body, dl, dt, dd, ul, ol, li ,h1, h2, h3, h4, h5, h6, pre,
+form, fieldset,legend, input, p, blockquote, table,thead, tbody, tfoot,th, td, textarea, img,hr{margin: 0;padding: 0; border:0; outline:none; font-family: "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;}
+body{ font-size:12px; background-color:#FFFFFF; color:#333;}
+fieldset { border: 0;}
+a img { border: 0; cursor: pointer; }
+img { vertical-align: middle;}
+address, caption, cite, code, em, strong, var { font-style: normal; font-weight: normal;}
+ul, ol { list-style: none;}
+caption, th{ text-align: left;}
+h1, h2, h3, h4, h5, h6{ font-weight:normal;}
+.bold { font-weight: bold;}
+.normal { font-weight: normal;}
+.hide,.hidden { display:none;}
+.show,.block { display: block;}
+.i-block { display: inline-block;}
+a:active { background-color: transparent;  }/*去掉 IE 10+ 点击链接时的灰色背景*/
+a:active, a:hover {outline: 0 none; }
+a {text-decoration:none; color:#333; cursor: pointer;  }
+a:hover {text-decoration:none;color:#468601; }
+.overflow-hidden { overflow: hidden;}
+p{ word-break:break-all;word-wrap:break-word;}
+.pointer { cursor: pointer;}
+.v-a-m { vertical-align:middle;}
+.v-a-top { vertical-align:top !important;}
+.v-a-bottom { vertical-align:bottom !important;}
+.inline-block { display:inline-block;}
+.blod { font-weight: bold;}
+.b { border:1px solid red;}
+h1 { font-weight: normal;}
+.clearfix { *zoom:1;}
+.clearfix:before, .clearfix:after {content: "";display: table; }
+.clearfix:after {clear: both;}
+.f-left{ float:left;}
+.f-right{ float:right;}
+.relative{ position:relative;}
+.absolute{ position:absolute;}
+.text-center{ text-align:center !important;}
+.text-left{ text-align:left;}
+.text-right{ text-align:right;}
+input:-webkit-autofill{ -webkit-box-shadow : 0 0 0px 1000px white inset ; background-color: #FFFFFF!important;}
+input::-webkit-input-placeholder,input::-moz-placeholder,input:-ms-input-placeholder{ color:#a0a0a0;}
+button,input,optgroup,select,textarea {font-family: inherit; margin: 0;font-size: 100%; outline:none; vertical-align: middle;}
+input,button {*overflow: visible;}
+button,select { text-transform: none;}
+button,html input[type="button"],input[type="reset"],input[type="submit"] { -webkit-appearance: button; cursor: pointer;}
+button[disabled],html input[disabled] { cursor: default;}
+input[type="checkbox"], input[type="radio"] { box-sizing: border-box; -webkit-box-sizing: border-box; -moz-box-sizing: border-box;padding: 0; *height: 13px; *width: 13px;  }
+button::-moz-focus-inner,input::-moz-focus-inner { padding: 0; border: 0;}/*移除 Firefox 3+ 的内边距*/
+textarea{overflow:auto; resize: vertical;}/*取消chrome下textarea可拖动放大*/
+select:disabled option:checked, option:disabled:checked { color: #D2D2D2;  }
+input::-moz-placeholder, textarea::-moz-placeholder {color: darkGray;opacity: 1;  }
+label{ vertical-align:middle; *vertical-align: middle;}
+select[size], select[multiple], select[size][multiple] {border: 1px solid #AAA; padding:0; }/*统一 select 样式, Firefox 中有 padding:1px 0*/

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+</head>
+<body>
+
+<textarea  rows="6"></textarea>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script>
+    var placeholder = '第一行文本提示\n第二行文本提示\n第三行文本提示';
+    $('textarea').val(placeholder);
+    $('textarea').focus(function() {
+        if ($(this).val() == placeholder) {
+            $(this).val('');
+        }
+    });
+
+    $('textarea').blur(function() {
+        if ($(this).val() == '') {
+            $(this).val(placeholder);
+        }
+    });
+</script>
+</body>
+</html>

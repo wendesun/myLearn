@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <style type="text/css">
+        .mbsc-mobiscroll .dwv {
+            padding: 0 .6666em;
+            padding-top: .6666em;
+            color: #4eccc4;
+            font-size: 1.3em;
+            text-transform: uppercase;
+            min-height: 2em;
+            line-height: 2em;
+            border-bottom:2px solid #4eccc4 ;
+        }
+    </style>
+
+</head>
+<body>
+<label for="test">Expiration</label>
+<input id="test" placeholder="mm/yyyy" />
+<link rel="stylesheet" href="js/mobiscroll.custom-2.14.4.min.css"/>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/mobiscroll-2.14.4-crack.js"></script>
+<script type="text/javascript">
+    $(function () {
+        var now = new Date();
+        // Mobiscroll Date & Time initialization
+        $('#test').mobiscroll().date({
+            theme: 'mobiscroll',           // Specify theme like: theme: 'ios' or omit setting to use default
+            lang: 'zh',                    // Specify language like: lang: 'pl' or omit setting to use default
+            display: 'modal',             // Specify display mode like: display: 'bottom' or omit setting to use default
+            dateOrder: 'yymm',             // More info about dateOrder: http://docs.mobiscroll.com/2-17-1/datetime#!localization-dateOrder
+            dateFormat: 'yy-mm',           // More info about dateFormat: http://docs.mobiscroll.com/2-17-1/datetime#!localization-dateFormat
+            startYear: 1950,  // More info about startYear: http://docs.mobiscroll.com/2-17-1/datetime#!opt-startYear
+            endYear: now.getFullYear(),
+            minWidth: 100,                  // More info about minWidth: http://docs.mobiscroll.com/2-17-1/datetime#!opt-minWidth
+            showNow: true,
+            headerText: function (valueText) { //自定义弹出框头部格式
+                array = valueText.split('-');
+                return array[0] + "年" + array[1] + "月";
+            }
+        });
+
+    });
+</script>
+</body>
+</html>

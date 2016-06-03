@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" />
+    <title>HTML5测试</title>
+    <script src="jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function() {
+            var startX, startY, endX, endY;
+            var showADID = 1;
+            document.getElementById("divADBox").addEventListener("touchstart", touchStart, false);
+            document.getElementById("divADBox").addEventListener("touchmove", touchMove, false);
+            document.getElementById("divADBox").addEventListener("touchend", touchEnd, false);
+            function touchStart(event) {
+                var touch = event.touches[0];
+                startY = touch.pageY;
+                startX = touch.pageX;
+            }
+            function touchMove(event) {
+                var touch = event.touches[0];
+                //endY = (startY - touch.pageY);
+                endX = touch.pageX;
+            }
+            function touchEnd(event) {
+                $("#img0" + showADID).hide();
+                showADID++;
+                if (showADID > 4) {
+                    showADID = 1;
+                }
+                if ((startX - endX) > 100) {
+                    $("#img0" + showADID).show();
+                }
+                $("#spText").html("X轴移动大小：" + (startX - endX));
+            }
+        })
+    </script>
+</head>
+<body >
+    <form id="form1">
+    <div style="border:solid 1px Red;" id="divADBox">
+    <span id="spText">X轴移动大小：0</span>
+        <img id="img01" src="images/6.jpg"  />
+        <img id="img02" src="images/2.jpg" style="display:none;" />
+        <img id="img03" src="images/4.jpg" style="display:none;" />
+        <img id="img04" src="images/4.jpg" style="display:none;" />
+    </div>
+    </form>
+</body>
+</html>

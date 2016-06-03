@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+ul{ list-style:none;}
+li{ width:16px; height:16px; float:left;}
+.xz{ background:url(images/a_03.jpg) no-repeat center;}
+.qx{ background:url(images/a_05.jpg) no-repeat center;}
+li.first{ width:80px;}
+</style>
+<script src="jquery-1.11.3.min.js"></script>
+<script>
+$(function(){
+	/*$(".qx").on("click",function(){
+		var  n=$(this).index();
+		$(this).removeClass("qx").addClass("xz").prevAll().removeClass("qx").addClass("xz");
+		$(this).nextAll().removeClass("xz").addClass("qx");
+		$("input[name='nyd']").val(n);
+	});*/
+	
+	$("input[name='nyd']").on("input propertychange keyup",function(){
+		var n=$(this).val();
+		$("#nyd").find("li").eq(n).removeClass("qx").addClass("xz").prevAll().removeClass("qx").addClass("xz");
+		$("#nyd").find("li").eq(n).nextAll().removeClass("xz").addClass("qx");
+		
+	});
+	
+});
+</script>
+</head>
+
+<body>
+<input type="text" value="0" name="nyd" />
+难易度：
+<ul id="nyd">
+	<li class="qx"></li>
+    <li class="qx"></li>
+    <li class="qx"></li>
+    <li class="qx"></li>
+    <li class="qx"></li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        .box{ width: 200px; height: 200px; border: 1px solid #269abc; margin: 100px auto; position: relative;}
+        .yuan{ width: 10px; height: 10px; border-radius: 50%; position: absolute; left: -5px; top: -5px; background-color: #FF00FF;}
+        .amt{
+            animation: test 4s  ease-in-out;
+            -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+            animation-iteration-count:infinite;
+        }
+        @keyframes test{
+            0%,100%{ left: -5px; top: -5px;}
+            25%{ left: 195px; top: -5px;}
+            50%{ left: 195px; top: 195px;}
+            75%{ left: -5px; top: 195px;}
+        }
+
+    </style>
+    <script src="../js/jquery-1.11.3.min.js"></script>
+    <script>
+        $(function(){
+            var left=0,top=0;
+            function test(){
+                 left= $(".yuan").css("left");
+                 top= $(".yuan").css("top");
+            }
+           var swd=setInterval(test);
+            $(".box").on("mouseover",function(){
+                $(".box > div").removeClass("amt");
+                clearInterval(swd);
+                console.log(left+"===================="+top);
+                $(".box > div").css({left:left,top:top});
+            }).on("mouseout",function(){
+                $(".box > div").addClass("amt");
+                clearInterval(swd);
+                console.log(left+"===================="+top);
+                $(".box > div").css({left:left,top:top});
+            });
+
+        })
+    </script>
+</head>
+<body>
+    <div class="box">
+        <div class="yuan amt"></div>
+    </div>
+</body>
+</html>

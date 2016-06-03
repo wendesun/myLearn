@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>栅格系统与多列布局</title>
+<style type="text/css">
+.row{ width:960px; margin:0 auto; min-height: 300px;}
+.row:after{ clear:left; content:''; display:table;}/*清除浮动*/
+[class^="col"]{ float:left;  box-sizing:border-box; -webkit-box-sizing:border-box;}
+.border1{border:1px solid #ccc;}
+.border2{border:1px solid #ccc; border-left:none;}
+.col1{ width:25%;}
+.col2{ width:50%;}
+.col3{ width:75%;}
+</style>
+</head>
+
+<body>
+<div class="row">
+	<div class="col1 border1">a</div>
+    <div class="col2 border2">b好好学习天天向上，人世间的繁华</div>
+    <div class="col1 border2">c</div>
+</div>
+</body>
+</html>

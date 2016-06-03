@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+    <meta charset="UTF-8">
+    <title>someText</title>
+
+</head>
+<body ng-controller='TextController'>
+<h1>{{someText}}</h1>
+
+
+
+<script  src="https://code.angularjs.org/angular-1.0.1.min.js"></script>
+<script>
+    function TextController($scope){
+        $scope.someText = 'you are very good!!!';
+    }
+</script>
+</body>
+</html>

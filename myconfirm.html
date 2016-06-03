@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+*{ padding:0; margin:0;}
+body{ font-size: 12px;font-family:"\5FAE\8F6F\96C5\9ED1"; line-height:1.0; color:#000;}	 
+.confirm-container{ width:300px; min-height:100px; overflow:hidden; background-color:#fff; margin:0 auto; border:2px solid #336699; position:fixed; top:40%; left:50%; z-index:10; margin-left:-150px; }
+.confirm-header{  height:30px; line-height:27px; background:url(images/header.gif); color:#FFF ; padding-left:5px;}
+.confirm-close{ font-size:18px; text-decoration:none; color:#FFF; display:block; width:30px; height:27px;text-align:center;}
+a.confirm-close{ font-size:18px; text-decoration:none; color:#FFF; display:block; width:30px; height:27px;text-align:center;}
+.confirm-msg{ padding:10px;}
+.confirm-footer{ text-align:right; padding:5px;}
+.confirm-buttom{ border:0; background-color:transparent; width:50px; height:26px; line-height:26px; background:url(images/header.gif); color:#FFF; font-size:12px; text-align:center ; cursor:pointer;}
+.float-right{ float:right;}
+</style>
+<script src="jquery-1.11.3.min.js" type="text/javascript"></script>
+<script>
+/*;(function($){
+	$.fn.confirmTip={};
+	
+	$.fn.confirmTip.yes=function(){
+		$("#yes").click(function(){
+				window.location.href = 'http://www.baidu.com';
+		});
+	},
+	$.fn.confirmTip.no=function(){
+		$("#close,#no").click(function(){
+				$(".confirm-container").hide();
+		});
+	}
+	
+})(jQuery);
+	
+$(function(){
+	$.fn.confirmTip.yes();
+	$.fn.confirmTip.no();
+});	*/
+
+$(function(){
+	var ConfirmTip={
+		createConfirm:function(id,msg,url){
+		$(id).click(function(){
+		var method=$(this).attr("data-method");
+		var modal=$(this).attr("data-modal") || "modal2";
+		
+		if( "undefined" !== typeof method  && method !==""){
+			var modal1='<div class="confirm-container"><p class="confirm-header"><a href="#" title="Close" id="close" class=" float-right confirm-close">x</a>Confirm</p><p class="confirm-msg">'+msg+'</p></div>';
+			var modal2='<div class="confirm-container"><p class="confirm-header"><a href="#" title="Close" id="close" class=" float-right confirm-close">x</a>Confirm</p><p class="confirm-msg">'+msg+'</p><p class="confirm-footer" ><input type="submit" id="yes" class="confirm-buttom" value="YES" />&nbsp;&nbsp;<input  id="no" class="confirm-buttom" type="buttom" value="NO" /></p></div>';
+			var modal3='<div class="confirm-container"><p class="confirm-header"><a href="#" title="Close" id="close" class=" float-right confirm-close">x</a>Confirm</p><p class="confirm-msg">'+msg+'</p><p class="confirm-footer" ><input type="submit" id="yes" class="confirm-buttom" value="YES" />&nbsp;&nbsp;<input  id="no" class="confirm-buttom" type="buttom" value="NO" /></p></div>';
+			
+			var methodList=method.split("-");
+			for(var n=0; n< methodList.length; n++){
+				if(methodList[n]=="confirmTip" && $(".confirm-container").length==0){
+					if($.trim(modal)=="modal1"){$(modal1).appendTo("body").show();ConfirmTip.yes(url);};
+					if($.trim(modal)=="modal2"){$(modal2).appendTo("body").show();ConfirmTip.yes(url);};
+					if($.trim(modal)=="modal3"){$(modal3).appendTo("body").show();ConfirmTip.form(myForm);};	
+				}
+			}
+			ConfirmTip.no();
+		}
+		});
+		},
+		form:function(myForm){
+			$("#yes").click(function(){
+				document.myForm.submit();
+				//$(".confirm-container").remove();
+			});
+		},
+		yes:function(url){
+			$("#yes").click(function(){
+				document.location.href = url;
+				//$(".confirm-container").remove();
+			});
+		},
+		no:function(){
+			$("#close,#no").click(function(){
+				$(".confirm-container").remove();
+			});
+		}
+	};
+	window['ConfirmTip']=ConfirmTip;
+});
+$(function(){
+	var msg='Continue to the SimpleModal Project page?';
+	var html='<form name="myForm" method="" action="http://localhost:8080/test1/test1.jsp" class="myForm">出发站点:<input type="text" name="cfzd"  value=""/><br />到达站点:<input type="text" name="ddzd" /><br />站点类别<select name="zdlb"><option value="111">1111</option><option value="222">2222</option></select></form>';
+	var url="http://www.baidu.com/";
+	var url2="http://localhost:8080/test1/test1.jsp";
+	//ConfirmTip.createConfirm("#demo",html,"myForm"); 
+	ConfirmTip.createConfirm("#demo",msg,url); 
+});
+
+</script>
+</head>
+
+<body>
+<input type="button" id="demo" value="demo" data-method="confirmTip" data-modal="modal2"/>
+<div style=" background-color:#C3C; height:500px;"></div>
+
+
+
+</body>
+</html>

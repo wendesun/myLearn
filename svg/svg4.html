@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        svg{ background-color: #f7f7f7; padding: 0; margin: 0;}
+    </style>
+</head>
+<body>
+
+<svg id="svg" width="100%" height="1000" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"></svg>
+<input type="button" value="提交"/>
+<script src="../js/jquery-1.11.3.min.js"></script>
+<script src="snap.svg-min.js"></script>
+<script>
+    $(function(){
+        $.ajax({
+            type:"POST",
+            url:"station.json",
+            dataType:"json",
+            data:"",
+            success:function(data){
+                $.each(data, function(index,values){   // 解析出data对应的Object数组
+
+                    $.each(values,function(index2,value){   // 遍历Object数组 ，每个对象的值存放在value ，index2表示为第几个对象
+                        //  根据自己的逻辑进行数据的处理
+//                            alert(value.path + "  " + value.fill);
+                        //  TODO:  逻辑
+                        drawLine(value.path,value.fill,value.stroke,value.strokeWidth);
+                    });
+                });
+            },
+            error:function(){
+                alert("系统出现问题");
+            }
+
+        });
+
+        function drawLine(path,fill,stroke,strokeWidth){
+            var svg = Snap("#svg");
+            var c = svg.paper.path(path).attr({
+                fill:fill,
+                stroke: stroke,
+                strokeWidth: strokeWidth
+            })
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+body{ padding:0; margin:0;}
+.header{ height:100px; background-color:#F69; position:fixed; width:100%; top:0px; filter: alpha(opacity=50); opacity: 0.5;-moz-opacity: 0.5; z-index:1001; }
+.process{   padding-top:200px;}
+.process .yuan{border:3px solid #a1c6a4; border-radius:50%; height:100px; width:100px; line-height:100px; text-align:center; float:left; opacity: 0;  }
+
+.fadeInUp{ -webkit-animation:fadeInUp 1000ms .8s ease both;}
+@-webkit-keyframes fadeInUp {
+	 0% {
+		  opacity: 0;
+		  -webkit-transform: translateY(50px);
+		   transform: translateY(50px)
+	 }
+	  100% {
+		  opacity: 1;
+		   -webkit-transform: translateY(0);
+		    transform: translateY(0)
+	 }
+}
+
+.fadeInDown{ -webkit-animation:fadeInDown 1000ms .8s ease both;}
+@-webkit-keyframes fadeInDown {
+	 0% {
+		  opacity: 1;
+		  -webkit-transform: translateY(-50px);
+		   transform: translateY(-50px)
+	 }
+	  100% {
+		  opacity: 0;
+		   -webkit-transform: translateY(0);
+		    transform: translateY(0)
+	 }
+}
+
+</style>
+<script src="jquery-1.11.3.min.js"></script>
+<script>
+$(function(){
+	
+	var h= $(".process").get(0).offsetTop;	
+	$(window).scroll(function(){
+		var top=$(window).scrollTop(); //滚动高度 
+		if( top >= h){
+			$(".header").stop(true).animate({height:"50px"},500);	
+			//$(".yuan").addClass("fadeInUp");		
+		}else{
+			$(".header").stop(true).animate({height:"100px"},500);	
+			//$(".yuan").removeClass("fadeInUp").addClass("fadeInDown");			
+		}
+	});
+	
+
+});
+</script>
+</head>
+
+<body>
+<div class="header"></div>
+<div class="content" style=" height:2949px; background-color:#e1e1e1; ">    
+    <div class="process">
+        <div class="yuan ">
+            项目筛选
+        </div>
+        <div class="yuan ">
+            项目筛选
+        </div>
+        <div class="yuan ">
+            项目筛选
+        </div>
+        <div class="yuan ">
+            项目筛选
+        </div>
+    </div>	
+</div>
+
+       <section id="widget" data-wow-delay="0.4s" class="sep-top-lg sep-bottom-lg light wow fadeInUp animated" mixpanel="inview scrolled_to_partners" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;"></section>
+</body>
+</html>

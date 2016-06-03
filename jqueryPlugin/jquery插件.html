@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../js/jquery-1.11.3.min.js"></script>
+    <script>
+        ;(function($){
+            $.fn.extend({
+                test1:function(){
+                    console.log("11111111111");
+                    return this;
+                },
+                test2:function(){
+                    console.log("222222222222");
+                    return this;
+                },
+                test3:function(){
+                    console.log("333333333333");
+                    return this;
+                },
+                test4:function(options){
+                    var options= $.extend({name:"swd"},options);
+                    console.log(options);
+                    return this;
+                }
+            })
+        })(jQuery);
+
+        $(document).ready(function(){
+//            $.fn.test2().test3().test4();
+            $("#test").test1().test2();
+        });
+    </script>
+</head>
+<body>
+<div></div>
+<input type="button" id="test" value="测试"/>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JS滚动事件插件Headroom - 站长素材</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="main.css">
+    <style>
+        .headroom {
+            transition: transform 200ms linear;
+        }
+        .headroom--pinned {
+            transform: translateY(0%);
+        }
+        .headroom--unpinned {
+            transform: translateY(-100%);
+        }
+        .animated {
+            -webkit-animation-duration: .5s;
+            -moz-animation-duration: .5s;
+            -o-animation-duration: .5s;
+            animation-duration: .5s;
+            -webkit-animation-fill-mode: both;
+            -moz-animation-fill-mode: both;
+            -o-animation-fill-mode: both;
+            animation-fill-mode: both
+        }
+
+        @-webkit-keyframes slideDown {
+            0% {
+                -webkit-transform: translateY(-4em)
+            }
+
+            100% {
+                -webkit-transform: translateY(0)
+            }
+        }
+
+        @-moz-keyframes slideDown {
+            0% {
+                -moz-transform: translateY(-4em)
+            }
+
+            100% {
+                -moz-transform: translateY(0)
+            }
+        }
+
+        @-o-keyframes slideDown {
+            0% {
+                -o-transform: translateY(-4em)
+            }
+
+            100% {
+                -o-transform: translateY(0)
+            }
+        }
+
+        @keyframes slideDown {
+            0% {
+                transform: translateY(-4em)
+            }
+
+            100% {
+                transform: translateY(0)
+            }
+        }
+
+        .animated.slideDown {
+            -webkit-animation-name: slideDown;
+            -moz-animation-name: slideDown;
+            -o-animation-name: slideDown;
+            animation-name: slideDown
+        }
+
+        @-webkit-keyframes slideUp {
+            0% {
+                -webkit-transform: translateY(0)
+            }
+
+            100% {
+                -webkit-transform: translateY(-80px)
+            }
+        }
+
+        @-moz-keyframes slideUp {
+            0% {
+                -moz-transform: translateY(0)
+            }
+
+            100% {
+                -moz-transform: translateY(-80px)
+            }
+        }
+
+        @-o-keyframes slideUp {
+            0% {
+                -o-transform: translateY(0)
+            }
+
+            100% {
+                -o-transform: translateY(-80px)
+            }
+        }
+
+        @keyframes slideUp {
+            0% {
+                transform: translateY(0)
+            }
+
+            100% {
+                transform: translateY(-80px)
+            }
+        }
+
+        .animated.slideUp {
+            -webkit-animation-name: slideUp;
+            -moz-animation-name: slideUp;
+            -o-animation-name: slideUp;
+            animation-name: slideUp
+        }
+    </style>
+</head>
+<body class="language-javascript">
+
+<header class="headroom headroom--pinned">
+
+</header>
+<div style="height: 1500px; "></div>
+
+<!--<script src="http://cdn.bootcss.com/headroom/0.5.0/headroom.min.js"></script>-->
+<script src="headroom.js"></script>
+<script>
+    // 获取页面元素
+    var myElement = document.querySelector("header");
+    // 创建 Headroom 对象，将页面元素传递进去
+    var headroom  = new Headroom(myElement,{
+        "tolerance": 5,
+        "offset": 205,
+        "classes": {
+            "initial": "animated",
+            "pinned": "slideDown",
+            "unpinned": "slideUp"
+        }
+    });
+    // 初始化
+    headroom.init();
+</script>
+</body>
+</html>

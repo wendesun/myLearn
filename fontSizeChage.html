@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+body{ font-family:"宋体"; font-size:12px;}
+</style>
+<script src="jquery-1.11.3.min.js"></script>
+<script>
+$(function(){
+var thisEle=$("#para").css("font-size");	
+var textFontSize=parseInt(thisEle,10);
+var unit=thisEle.slice(-2);
+alert(unit);
+	
+	
+});
+</script>
+</head>
+
+<body>
+<input type="button" class="bigger" value="放大"/>
+<input type="button" class="smaller" value="缩小"/>
+<p id="para">可选。规定从何处结束选取。该参数是数组片断结束处的数组下标。如果没有指定该参数，那么切分的数组包含从 start 到数组结束的所有元素。如果这个参数是负数，那么它规定的是从数组尾部开始算起的元素。</p>
+</body>
+</html>

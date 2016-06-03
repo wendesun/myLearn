@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zn-ch">
+<head>
+<meta name="description" content="">
+<meta name="msapplication-tap-highlight" content="no">
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+
+	<script src="js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript">
+	 
+
+
+
+
+	$(function(){
+
+					
+			function setSelectionRange(input, selectionStart, selectionEnd) {
+			  if (input.setSelectionRange) {
+				input.focus();
+				input.setSelectionRange(selectionStart, selectionEnd);
+			  }
+			  else if (input.createTextRange) {
+				var range = input.createTextRange();
+				range.collapse(true);
+				range.moveEnd('character', selectionEnd);
+				range.moveStart('character', selectionStart);
+				range.select();
+			  }
+			}
+			
+			function setCaretToPos (input, pos) {
+			  setSelectionRange(input, pos, pos);
+			}
+			
+			
+			// alert("aaa");
+            $(".jqmc").click(function(){
+                $(".test").removeAttr("disabled").focus();
+				//$(".test").focusEnd();
+				var len=$('.test').val().length;
+				setCaretToPos($(".test").get(0), len);
+            });
+			$(".test").blur(function(){
+				$(".test").attr("disabled","true");
+				
+			});
+			
+			$("a[data-refresh]").click(function(){
+			    alert($(this).attr('data-refresh'));	
+			});
+			$("#abdd").click(function(){	
+			 	alert($(this).val());	
+				$(this).innerWidth();
+			});
+			
+        });
+    </script>
+
+</head>
+
+<body>
+<input type="text" value="故宫故宫故宫故宫故宫" disabled="disabled"  class="test"/>
+<input type="button" value="按钮" class="jqmc"/>
+<a href="#" data-refresh="reload">刷新</a>
+<a href="#">刷新2</a>
+<input value="按钮1" type="button" data-url="http://wwww.baidu.com" id="abdd">
+<input value="按钮2" type="button">
+&gt;
+</body>
+</html>

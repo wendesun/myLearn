@@ -1,0 +1,40 @@
+p {
+  color: #ff0033;
+}
+h2 {
+  color: #ff0033;
+}
+ul li:after {
+  content: "I am fnord.";
+}
+.border1 {
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border: 1px solid #ff0033;
+}
+.border2 {
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border: 2px solid #ff0033;
+}
+.box {
+  width: 100%;
+  min-height: 200px;
+  margin-bottom: 20px;
+}
+.box.padding.box-shadow {
+  padding: 10px 10px 10px 10px;
+  box-shadow: 2px 5px 1px #000;
+}
+#header {
+  color: #333333;
+  border-left: 1px;
+  border-right: 2px;
+}
+#footer {
+  color: #114411;
+  border-color: #7d2717;
+}
+/*# sourceMappingURL=test.css.map */

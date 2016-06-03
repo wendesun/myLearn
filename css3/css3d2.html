@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        *{ padding: 0; margin: 0;}
+        .stage{
+            border:1px solid #ccc;
+            margin:0 auto;
+            height: 500px;
+            width: 500px;
+            -webkit-perspective: 1200px;
+            -moz-perspective: 1200px;
+            -ms-perspective: 1200px;
+            -o-perspective: 1200px;
+            perspective: 1200px;
+        }
+
+        .container{
+            width: 310px;
+            height: 400px;
+            transform-style: preserve-3d;
+        }
+        .img{ position: absolute; width: 153px;}
+        .img:nth-child(1){transform: rotateY(   0deg )   translateZ(195.839px);}
+        .img:nth-child(2){transform: rotateY(   40deg )  translateZ(195.839px);}
+        .img:nth-child(3){transform: rotateY(   80deg )  translateZ(195.839px);}
+        .img:nth-child(4){transform: rotateY(   120deg ) translateZ(195.839px);}
+        .img:nth-child(5){transform: rotateY(   160deg ) translateZ(195.839px);}
+        .img:nth-child(6){transform: rotateY(   200deg ) translateZ(195.839px);}
+        .img:nth-child(7){transform: rotateY(   240deg ) translateZ(195.839px);}
+        .img:nth-child(8){transform: rotateY(   280deg ) translateZ(195.839px);}
+        .img:nth-child(9){transform: rotateY(   320deg ) translateZ(195.839px);}
+
+
+
+
+
+
+    </style>
+</head>
+
+<body>
+
+<div class="stage">
+        <div class="container">
+            <img src="../images/1.jpg" alt="" width="310" height="400" class="img"/>
+            <img src="../images/2.jpg" alt="" width="310" height="400" class="img"/>
+            <img src="../images/3.jpg" alt="" width="310" height="400" class="img"/>
+            <img src="../images/4.jpg" alt="" width="310" height="400" class="img"/>
+            <img src="../images/5.jpg" alt="" width="310" height="400" class="img"/>
+            <img src="../images/6.jpg" alt="" width="310" height="400" class="img"/>
+            <img src="../images/1.jpg" alt="" width="310" height="400" class="img"/>
+            <img src="../images/2.jpg" alt="" width="310" height="400" class="img"/>
+            <img src="../images/3.jpg" alt="" width="310" height="400" class="img"/>
+        </div>
+</div>
+
+</body>
+</html>
+
+

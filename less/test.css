@@ -1,0 +1,93 @@
+p {
+  color: #FF00CC;
+}
+h2 {
+  color: #FF00CC;
+}
+ul li:after {
+  content: "I am fnord.";
+}
+.border1 {
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border: 1px solid #FF00CC;
+}
+.border2 {
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border: 2px solid #FF00CC;
+}
+.box {
+  width: 100%;
+  min-height: 200px;
+  margin-bottom: 20px;
+}
+.box.padding.box-shadow {
+  padding: 10px 10px 10px 10px;
+  box-shadow: 2px 5px 1px #000;
+}
+/*.mixin (dark, @color) {
+  color: darken(@color, 10%);
+}
+.mixin (light, @color) {
+  color: lighten(@color, 10%);
+}
+.mixin (@_, @color) {
+  display: block;
+}
+
+@switch: dark;
+.box {
+  .mixin(@switch, #888);
+}*/
+.box.mixin {
+  background-color: black;
+  color: #ddd;
+}
+.box h1 {
+  font-size: 26px;
+  font-weight: bold;
+}
+.box p {
+  font-size: 12px;
+}
+.box p a {
+  text-decoration: none;
+}
+.box p a:hover {
+  border-width: 1px;
+}
+.box .classa {
+  color: #ffff00;
+}
+.c-color-class {
+  color: #f6430f;
+  background-color: #f8b38d;
+}
+#bundle .tab {
+  color: #0000ee;
+}
+#bundle .citation {
+  background-color: #00cccc;
+}
+.mmkj {
+  background-color: #00cccc;
+}
+#page #header {
+  color: white;
+}
+#footer {
+  color: red;
+}
+.pic-bg {
+  background: url("http://www.xiaoxiongbizhi.com/wallpapers/__85/y/w/ywzwdjof0.jpg") no-repeat center;
+}
+.testmyborder {
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border: 10px solid #00cccc;
+}
+/*# sourceMappingURL=test.css.map */

@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script src="jquery-1.11.3.min.js" type="text/javascript"></script>
+<script>
+$(function(){
+	$(".myForm").submit(function(){
+		
+			 var allelemts=$(this).find("input:not(':submit,:reset,:button'),select");
+			// alert('0000');
+			
+			for(var i=0;i<allelemts.length;i++){
+				alert($(allelemts[i]).val());
+				//if(allelemts[i].tagName.toLocaleLowerCase()=='input'){
+				//	alert($(allelemts[i]).val());
+				//	}
+				}
+	});		
+});
+</script>
+</head>
+
+<body>
+<form name="myForm" method="" action="" class="myForm">
+出发站点:<input type="text" name="cfzd"  value=""/><br />
+到达站点:<input type="text" name="ddzd" /><br />
+到达站点<select>
+<option value="111">1111</option>
+<option value="222">2222</option>
+</select>
+<input type="submit" value="提交" />
+</form>
+<form name="myForm" method="" action="" class="myForm">
+出发站点:<input type="text" name="cfzd"  value=""/><br />
+到达站点:<input type="text" name="ddzd" /><br />
+到达站点<select>
+<option value="111" disabled="disabled">1111</option>
+<option value="222">2222</option>
+</select>
+<input type="submit" value="提交" />
+</form>
+</body>
+</html>

@@ -1,0 +1,86 @@
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8" />
+    <title>时尚的CSS3进度条</title>
+    <style>
+        body {
+            background: #222 url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAMAAAC67D+PAAAAFVBMVEUqKiopKSkoKCgjIyMuLi4kJCQtLS0dJckpAAAAO0lEQVR42iXLAQoAUQhCQSvr/kfe910jHIikElsl5qVFa1iE5f0Pom/CNZdbNM6756lQ41NInMfuFPgAHVEAlGk4lvIAAAAASUVORK5CYII="); 
+			font: 13px 'trebuchet MS',Arial,Helvetica;
+        }
+	
+		h2, p {
+			text-align: center;
+			color: #fafafa;
+			text-shadow: 0 1px 0 #111;	
+		}
+		
+		a {color: #777}
+
+		/*---------------------------*/			
+        
+        .progress-bar {
+           
+            height: 16px;
+            width: 370px;
+            background:url(images/a2.jpg) no-repeat left;   
+        }
+        
+        .progress-bar .orange {
+            display: inline-block;
+            height: 100%;
+			 background:url(images/a1.jpg) #FFF no-repeat left;
+			-webkit-transition: width .4s ease-in-out;
+			-moz-transition: width .4s ease-in-out;
+			-ms-transition: width .4s ease-in-out;
+			-o-transition: width .4s ease-in-out;
+			transition: width .4s ease-in-out;		
+        }
+		
+		/*---------------------------*/			
+
+     
+		
+		
+    </style>
+</head>
+
+<body>
+
+
+<div class="progress-bar blue stripes">
+    <span class="orange" style="width: 0%"></span>
+</div>
+<p>Set above to:
+	<a href="#" class="quarter">25%</a> /
+	<a href="#" class="half">50%</a> /
+	<a href="#" class="three-quarters">75%</a> /
+	<a href="#" class="full">100%</a>
+</p>
+
+</div>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+	$(document).ready(function(){ 
+		$('.quarter').click(function(){
+			$(this).parent().prev().children('span').css('width','25%');
+			});
+		$('.half').click(function(){
+			$(this).parent().prev().children('span').css('width','50%');
+			});
+		$('.three-quarters').click(function(){
+			$(this).parent().prev().children('span').css('width','75%');
+			});
+		$('.full').click(function(){
+			$(this).parent().prev().children('span').css('width','100%');
+			});			
+	});
+</script>
+
+
+
+</body>
+</html>
